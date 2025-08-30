@@ -1,4 +1,4 @@
-2학기 강의일정
+2학기 강의 순서
 
 110: Lists Basics
 111: Advanced Lists and Tuples
