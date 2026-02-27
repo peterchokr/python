@@ -1,0 +1,910 @@
+# 21장 GUI 프로그래밍 2 (고급) — 연습문제
+
+---
+
+## 📝 객관식 문제
+
+---
+
+### 🟢 초급
+
+**문제 1.** 여러 개를 동시에 선택할 수 있는 위젯은?
+
+① `Radiobutton`
+② `Checkbutton`
+③ `Button`
+④ `Entry`
+
+---
+
+**문제 2.** 여러 개 중 하나만 선택할 수 있는 위젯은?
+
+① `Checkbutton`
+② `Listbox`
+③ `Radiobutton`
+④ `Scale`
+
+---
+
+**문제 3.** 체크박스(Checkbutton)의 선택 상태를 저장하는 변수 타입은?
+
+① `StringVar()`
+② `IntVar()`
+③ `BoolVar()`
+④ `CheckVar()`
+
+---
+
+**문제 4.** 여러 줄의 텍스트를 입력받을 수 있는 위젯은?
+
+① `Entry`
+② `Label`
+③ `Text`
+④ `Listbox`
+
+---
+
+**문제 5.** messagebox에서 정보 메시지를 표시하는 함수는?
+
+① `messagebox.showinfo()`
+② `messagebox.showwarning()`
+③ `messagebox.showerror()`
+④ `messagebox.showmessage()`
+
+---
+
+**문제 6.** Scale(슬라이더) 위젯에서 가로 방향을 설정하는 옵션은?
+
+① `orient="horizontal"`
+② `orient="vertical"`
+③ `direction="horizontal"`
+④ `side="horizontal"`
+
+---
+
+**문제 7.** 라디오 버튼들이 하나만 선택되게 하려면 어떻게 해야 하는가?
+
+① 각각 다른 `variable`을 사용한다
+② **모든 라디오 버튼이 같은 `variable`을 공유한다**
+③ `single=True` 옵션을 설정한다
+④ `group` 옵션을 사용한다
+
+---
+
+### 🟡 중급
+
+**문제 8.** Text 위젯에서 전체 내용을 가져오는 코드로 올바른 것은?
+
+① `text.get()`
+② `text.get("1.0", tk.END)`
+③ `text.get(0, "end")`
+④ `text.read()`
+
+---
+
+**문제 9.** messagebox에서 "예/아니오"를 묻는 함수는?
+
+① `messagebox.askquestion()`
+② `messagebox.askyesno()`
+③ `messagebox.askconfirm()`
+④ `messagebox.askok()`
+
+---
+
+**문제 10.** 다음 코드에서 `var.get()`의 반환값은 체크가 해제된 경우 무엇인가?
+
+```python
+var = tk.IntVar()
+tk.Checkbutton(window, text="동의", variable=var)
+```
+
+① `False`
+② `""`
+③ `0`
+④ `None`
+
+---
+
+**문제 11.** 메뉴 바를 윈도우에 적용하는 코드로 올바른 것은?
+
+① `window.menu = menubar`
+② `window.config(menu=menubar)`
+③ `window.add(menubar)`
+④ `window.setmenu(menubar)`
+
+---
+
+**문제 12.** Scrollbar를 Text 위젯에 연결할 때 Text 생성 시 필요한 옵션은?
+
+① `scroll=scrollbar`
+② `yscrollcommand=scrollbar.set`
+③ `scrollbar=scrollbar.connect`
+④ `yview=scrollbar`
+
+---
+
+### 🔴 고급
+
+**문제 13.** 다음 코드에서 `messagebox.askyesno()`의 반환값으로 올바른 것은?
+
+```python
+result = messagebox.askyesno("확인", "삭제하시겠습니까?")
+```
+
+① 사용자가 "예" 클릭 시 `"yes"`, "아니오" 클릭 시 `"no"`
+② 사용자가 "예" 클릭 시 `1`, "아니오" 클릭 시 `0`
+③ **사용자가 "예" 클릭 시 `True`, "아니오" 클릭 시 `False`**
+④ 사용자가 "예" 클릭 시 `"Y"`, "아니오" 클릭 시 `"N"`
+
+---
+
+**문제 14.** 다음 코드에서 라디오 버튼 선택 시 `var.get()`의 반환값은?
+
+```python
+var = tk.StringVar(value="빨강")
+tk.Radiobutton(window, text="빨강", variable=var, value="빨강")
+tk.Radiobutton(window, text="파랑", variable=var, value="파랑")
+```
+
+① 선택된 버튼의 인덱스 (0 또는 1)
+② 선택된 버튼의 `text` 값
+③ **선택된 버튼의 `value` 값 (`"빨강"` 또는 `"파랑"`)**
+④ 선택 여부 (`True` 또는 `False`)
+
+---
+
+**문제 15.** 메뉴에 구분선을 추가하는 코드로 올바른 것은?
+
+① `menu.add_line()`
+② `menu.add_separator()`
+③ `menu.add_divider()`
+④ `menu.add_break()`
+
+---
+
+## 📝 주관식 문제
+
+---
+
+### 🟢 초급
+
+**문제 16.** Checkbutton(체크박스)과 Radiobutton(라디오 버튼)의 차이점을 설명하시오. 각각 어떤 상황에서 사용하면 좋은지 예시를 들어 설명하시오.
+
+---
+
+**문제 17.** messagebox의 주요 함수 5가지를 나열하고, 각 함수의 용도와 반환값을 설명하시오.
+
+---
+
+**문제 18.** Text 위젯과 Entry 위젯의 차이점을 설명하시오. Text 위젯에서 `"1.0"`이 의미하는 바를 서술하시오.
+
+---
+
+### 🟡 중급
+
+**문제 19.** 다음 설문조사 프로그램 코드를 읽고, 각 위젯의 역할과 "제출" 버튼 클릭 시 어떤 동작이 일어나는지 설명하시오.
+
+```python
+import tkinter as tk
+from tkinter import messagebox
+
+def submit():
+    name = name_entry.get()
+    gender = gender_var.get()
+    hobbies = []
+    if h1.get(): hobbies.append("운동")
+    if h2.get(): hobbies.append("독서")
+    age = age_scale.get()
+    opinion = opinion_text.get("1.0", tk.END).strip()
+    messagebox.showinfo("결과", f"{name}, {gender}, {age}세\n취미: {', '.join(hobbies)}\n의견: {opinion}")
+
+window = tk.Tk()
+name_entry = tk.Entry(window)
+gender_var = tk.StringVar(value="남")
+tk.Radiobutton(window, text="남", variable=gender_var, value="남").pack()
+tk.Radiobutton(window, text="여", variable=gender_var, value="여").pack()
+h1 = tk.IntVar(); h2 = tk.IntVar()
+tk.Checkbutton(window, text="운동", variable=h1).pack()
+tk.Checkbutton(window, text="독서", variable=h2).pack()
+age_scale = tk.Scale(window, from_=10, to=80, orient="horizontal")
+age_scale.pack()
+opinion_text = tk.Text(window, width=30, height=5)
+opinion_text.pack()
+tk.Button(window, text="제출", command=submit).pack()
+window.mainloop()
+```
+
+---
+
+**문제 20.** Scrollbar를 Text 위젯에 연결하는 과정을 단계별로 설명하시오. 왜 양쪽 연결(`yscrollcommand`와 `command`)이 모두 필요한지 서술하시오.
+
+---
+
+### 🔴 고급
+
+**문제 21.** 다음 클래스 기반 계산기 코드에서 `lambda x=btn_text: self.on_button_click(x)`가 사용된 이유를 설명하시오. 만약 `lambda: self.on_button_click(btn_text)`로 작성하면 어떤 문제가 발생하는지 서술하시오.
+
+```python
+for col_idx, btn_text in enumerate(row):
+    button = tk.Button(
+        button_frame,
+        text=btn_text,
+        command=lambda x=btn_text: self.on_button_click(x)
+    )
+```
+
+---
+
+## 💻 실습형 문제
+
+---
+
+### 🟢 초급
+
+**문제 22.** 다음 요구사항에 맞는 tkinter 프로그램의 코드를 작성하시오.
+
+> **과일 선택 프로그램**
+>
+> - 체크박스 4개: 사과, 바나나, 딸기, 포도
+> - "확인" 버튼 클릭 시 선택한 과일 목록을 결과 Label에 표시
+> - 아무것도 선택하지 않으면 "선택 없음" 표시
+
+---
+
+**문제 23.** 다음 요구사항에 맞는 tkinter 프로그램의 코드를 작성하시오.
+
+> **색상 선택 프로그램**
+>
+> - 라디오 버튼 4개: 빨강, 파랑, 초록, 노랑
+> - 라디오 버튼 선택 후 "적용" 버튼 클릭 시 결과 Label의 배경색이 선택한 색으로 변경
+> - 기본 선택: 빨강
+
+---
+
+### 🟡 중급
+
+**문제 24.** 다음 요구사항에 맞는 tkinter 프로그램의 코드를 작성하시오.
+
+> **간단한 메모장**
+>
+> - Text 위젯으로 여러 줄 입력 가능
+> - Scrollbar 연결
+> - "저장" 버튼: 내용을 `memo.txt` 파일로 저장 후 messagebox로 알림
+> - "불러오기" 버튼: `memo.txt` 파일 내용을 Text에 표시 (파일 없으면 오류 메시지)
+> - "지우기" 버튼: Text 내용 전체 삭제 (삭제 전 askyesno로 확인)
+
+---
+
+**문제 25.** 다음 요구사항에 맞는 tkinter 프로그램의 코드를 작성하시오.
+
+> **BMI 계산기**
+>
+> - Entry 2개: 키(cm), 몸무게(kg) 입력
+> - Scale 위젯으로도 키(100~220)를 조절 가능 (Entry와 동기화 안 해도 됨)
+> - "계산" 버튼: BMI = 몸무게 ÷ (키÷100)² 계산
+> - 결과 Label에 BMI 값과 판정 표시
+>   - 18.5 미만: 저체중
+>   - 18.5~24.9: 정상
+>   - 25.0~29.9: 과체중
+>   - 30.0 이상: 비만
+> - 숫자가 아닌 값 입력 시 messagebox.showerror로 오류 표시
+
+---
+
+### 🔴 고급
+
+**문제 26.** 다음 요구사항에 맞는 tkinter 프로그램의 코드를 작성하시오.
+
+> **주문 프로그램**
+>
+> - 메뉴 구성 (Radiobutton): 짜장면(7000), 짬뽕(8000), 볶음밥(8500)
+> - 추가 옵션 (Checkbutton): 곱빼기(+1500), 음료(+2000), 디저트(+3000)
+> - 수량 선택: Scale (1~10)
+> - "주문" 버튼 클릭 시:
+>   - messagebox.askyesno로 주문 확인
+>   - 확인 시 주문 내역과 총 금액을 messagebox.showinfo로 표시
+>   - 총 금액 = (메뉴 가격 + 추가 옵션 합계) × 수량
+> - Listbox에 주문 내역 누적 추가
+> - 하단에 총 누적 금액 표시
+
+---
+
+---
+
+# 🔑 정답 및 해설
+
+---
+
+## 📝 객관식 정답
+
+---
+
+### 🟢 초급
+
+**문제 1. 정답: ② `Checkbutton`**
+
+`Checkbutton`(체크박스)은 여러 개를 동시에 선택할 수 있는 위젯입니다. 각 체크박스는 독립적인 변수를 가집니다.
+
+---
+
+**문제 2. 정답: ③ `Radiobutton`**
+
+`Radiobutton`(라디오 버튼)은 여러 개 중 하나만 선택할 수 있는 위젯입니다. 같은 `variable`을 공유합니다.
+
+---
+
+**문제 3. 정답: ② `IntVar()`**
+
+체크박스는 `IntVar()`를 사용하여 선택 상태를 저장합니다. 0이면 해제, 1이면 선택입니다.
+
+---
+
+**문제 4. 정답: ③ `Text`**
+
+`Text` 위젯은 여러 줄의 텍스트를 입력받을 수 있습니다. `Entry`는 한 줄만 입력 가능합니다.
+
+---
+
+**문제 5. 정답: ① `messagebox.showinfo()`**
+
+`showinfo()`는 정보(ℹ️) 메시지를 표시합니다. `showwarning()`은 경고, `showerror()`는 오류 메시지입니다.
+
+---
+
+**문제 6. 정답: ① `orient="horizontal"`**
+
+`orient="horizontal"`은 가로 방향, `orient="vertical"`은 세로 방향의 슬라이더를 생성합니다.
+
+---
+
+**문제 7. 정답: ② 모든 라디오 버튼이 같은 `variable`을 공유한다**
+
+라디오 버튼들이 같은 `variable`을 공유하면 그 중 하나만 선택됩니다. 체크박스는 각각 다른 변수를 사용합니다.
+
+---
+
+### 🟡 중급
+
+**문제 8. 정답: ② `text.get("1.0", tk.END)`**
+
+Text 위젯은 `get("1.0", tk.END)`으로 전체 내용을 가져옵니다. `"1.0"`은 1행 0열(첫 위치)을 의미합니다.
+
+---
+
+**문제 9. 정답: ② `messagebox.askyesno()`**
+
+`askyesno()`는 "예/아니오" 대화상자를 표시하며, 사용자가 "예"를 클릭하면 `True`, "아니오"를 클릭하면 `False`를 반환합니다.
+
+---
+
+**문제 10. 정답: ③ `0`**
+
+`IntVar()`는 체크 해제 시 `0`, 선택 시 `1`을 반환합니다.
+
+---
+
+**문제 11. 정답: ② `window.config(menu=menubar)`**
+
+`config(menu=menubar)` 또는 `configure(menu=menubar)`로 메뉴 바를 윈도우에 적용합니다.
+
+---
+
+**문제 12. 정답: ② `yscrollcommand=scrollbar.set`**
+
+Text 생성 시 `yscrollcommand=scrollbar.set`으로 Text의 스크롤 위치를 Scrollbar에 전달합니다.
+
+---
+
+### 🔴 고급
+
+**문제 13. 정답: ③ 사용자가 "예" 클릭 시 `True`, "아니오" 클릭 시 `False`**
+
+`askyesno()`는 파이썬 불리언 값(`True`/`False`)을 반환합니다. `if result:` 형태로 바로 사용할 수 있습니다.
+
+---
+
+**문제 14. 정답: ③ 선택된 버튼의 `value` 값 (`"빨강"` 또는 `"파랑"`)**
+
+라디오 버튼에서 `var.get()`은 선택된 버튼의 `value` 옵션에 지정된 값을 반환합니다. `StringVar`이므로 문자열이 반환됩니다.
+
+---
+
+**문제 15. 정답: ② `menu.add_separator()`**
+
+`add_separator()`는 메뉴 항목 사이에 구분선을 추가합니다. "파일 > 저장" 다음에 "파일 > 종료"를 구분할 때 사용합니다.
+
+---
+
+## 📝 주관식 정답
+
+---
+
+### 🟢 초급
+
+**문제 16. 모범답안:**
+
+**Checkbutton (체크박스)**:
+
+- **여러 개를 동시에 선택** 가능
+- 각 체크박스가 **독립적인 변수** (`var1`, `var2`, ...)를 가짐
+- `IntVar()` 사용: 0(해제), 1(선택)
+- 예시: 좋아하는 취미 선택, 동의 항목 체크, 옵션 설정
+
+**Radiobutton (라디오 버튼)**:
+
+- 여러 개 중 **하나만 선택** 가능
+- 모든 라디오 버튼이 **같은 변수**를 공유
+- `StringVar()` 또는 `IntVar()` 사용
+- 예시: 성별 선택, 학년 선택, 결제 방법 선택
+
+---
+
+**문제 17. 모범답안:**
+
+| 함수                        | 용도               | 반환값               |
+| --------------------------- | ------------------ | -------------------- |
+| `showinfo(제목, 내용)`    | 정보 알림 (ℹ️)   | `"ok"`             |
+| `showwarning(제목, 내용)` | 경고 메시지 (⚠️) | `"ok"`             |
+| `showerror(제목, 내용)`   | 오류 메시지 (❌)   | `"ok"`             |
+| `askyesno(제목, 질문)`    | 예/아니오 질문     | `True` / `False` |
+| `askokcancel(제목, 질문)` | 확인/취소 질문     | `True` / `False` |
+
+---
+
+**문제 18. 모범답안:**
+
+**Entry 위젯**:
+
+- **한 줄**만 입력 가능
+- `get()`으로 값 가져오기
+- `delete(0, tk.END)`로 삭제
+- 용도: 이름, 비밀번호, 숫자 입력
+
+**Text 위젯**:
+
+- **여러 줄** 입력 가능
+- `get("1.0", tk.END)`으로 전체 내용 가져오기
+- `delete("1.0", tk.END)`로 삭제
+- 용도: 메모, 의견, 코드 입력
+
+**`"1.0"`의 의미**: 1번째 줄(행), 0번째 문자(열)를 의미합니다. 즉 텍스트의 맨 처음 위치입니다. Text 위젯은 행.열 형태로 위치를 지정합니다.
+
+---
+
+### 🟡 중급
+
+**문제 19. 모범답안:**
+
+**위젯 역할:**
+
+- `name_entry` (Entry): 이름 입력
+- `gender_var`와 Radiobutton 2개: 성별 선택 (남/여 중 하나, 같은 `gender_var` 공유)
+- `h1`, `h2`와 Checkbutton 2개: 취미 선택 (운동/독서 복수 선택 가능, 각각 독립 `IntVar`)
+- `age_scale` (Scale): 나이 선택 (10~80 범위 슬라이더)
+- `opinion_text` (Text): 자유 의견 입력 (여러 줄)
+- Button: 제출 버튼
+
+**"제출" 버튼 클릭 시 동작:**
+
+1. `name_entry.get()`으로 이름을 가져옴
+2. `gender_var.get()`으로 선택된 성별 (`"남"` 또는 `"여"`)을 가져옴
+3. `h1.get()`, `h2.get()`으로 각 체크박스의 선택 여부를 확인하여 취미 리스트 구성
+4. `age_scale.get()`으로 슬라이더의 현재 값(나이)을 가져옴
+5. `opinion_text.get("1.0", tk.END).strip()`으로 의견 내용을 가져옴
+6. `messagebox.showinfo()`로 수집된 모든 정보를 팝업 메시지로 표시
+
+---
+
+**문제 20. 모범답안:**
+
+**Scrollbar 연결 과정:**
+
+1단계: Frame 생성 (Text와 Scrollbar를 함께 담을 컨테이너)
+
+```python
+frame = tk.Frame(window)
+```
+
+2단계: Scrollbar 생성 후 오른쪽에 배치
+
+```python
+scrollbar = tk.Scrollbar(frame)
+scrollbar.pack(side="right", fill="y")
+```
+
+3단계: Text 생성 시 `yscrollcommand`로 Scrollbar와 연결
+
+```python
+text = tk.Text(frame, yscrollcommand=scrollbar.set)
+```
+
+4단계: Scrollbar의 `command`를 Text의 `yview`로 설정
+
+```python
+scrollbar.config(command=text.yview)
+```
+
+**양쪽 연결이 모두 필요한 이유:**
+
+- `yscrollcommand=scrollbar.set`: Text 내용이 변경되거나 스크롤 위치가 바뀌면 **Scrollbar의 위치를 업데이트**합니다 (Text → Scrollbar).
+- `command=text.yview`: Scrollbar를 드래그하면 **Text의 보이는 영역을 이동**합니다 (Scrollbar → Text).
+- 즉, 양쪽 모두 연결해야 Text와 Scrollbar가 서로 동기화됩니다.
+
+---
+
+### 🔴 고급
+
+**문제 21. 모범답안:**
+
+`lambda x=btn_text: self.on_button_click(x)`에서 `x=btn_text`는 **기본 매개변수(default argument)**입니다. 이것이 필요한 이유는 **클로저(closure)의 변수 바인딩 문제** 때문입니다.
+
+만약 `lambda: self.on_button_click(btn_text)`로 작성하면, lambda 함수는 `btn_text`라는 **변수의 참조**를 저장합니다. 반복문이 끝나면 `btn_text`는 마지막 반복의 값(예: `"+"`)을 가리키게 됩니다. 따라서 **모든 버튼을 클릭해도 마지막 값인 `"+"`만 전달**됩니다.
+
+`lambda x=btn_text`로 작성하면, lambda 생성 시점에 `btn_text`의 **현재 값이 `x`에 복사**됩니다. 따라서 각 버튼마다 올바른 값이 저장됩니다.
+
+---
+
+## 💻 실습형 정답
+
+---
+
+### 🟢 초급
+
+**문제 22. 모범답안:**
+
+```python
+import tkinter as tk
+
+def show_choice():
+    choices = []
+    if var1.get(): choices.append("사과")
+    if var2.get(): choices.append("바나나")
+    if var3.get(): choices.append("딸기")
+    if var4.get(): choices.append("포도")
+
+    if choices:
+        result_label.config(text=f"선택: {', '.join(choices)}")
+    else:
+        result_label.config(text="선택 없음")
+
+window = tk.Tk()
+window.title("과일 선택")
+window.geometry("300x300")
+
+tk.Label(window, text="좋아하는 과일을 선택하세요",
+         font=("맑은 고딕", 12, "bold")).pack(pady=15)
+
+var1 = tk.IntVar()
+var2 = tk.IntVar()
+var3 = tk.IntVar()
+var4 = tk.IntVar()
+
+tk.Checkbutton(window, text="사과", variable=var1).pack(anchor="w", padx=50)
+tk.Checkbutton(window, text="바나나", variable=var2).pack(anchor="w", padx=50)
+tk.Checkbutton(window, text="딸기", variable=var3).pack(anchor="w", padx=50)
+tk.Checkbutton(window, text="포도", variable=var4).pack(anchor="w", padx=50)
+
+tk.Button(window, text="확인", command=show_choice, bg="lightblue").pack(pady=15)
+
+result_label = tk.Label(window, text="", font=("맑은 고딕", 11), fg="blue")
+result_label.pack(pady=10)
+
+window.mainloop()
+```
+
+핵심: 각 체크박스마다 독립적인 `IntVar()`를 사용하고, `get()`으로 선택 여부(0/1)를 확인합니다.
+
+---
+
+**문제 23. 모범답안:**
+
+```python
+import tkinter as tk
+
+def apply_color():
+    color_map = {
+        "빨강": "red",
+        "파랑": "blue",
+        "초록": "green",
+        "노랑": "yellow"
+    }
+    selected = var.get()
+    result_label.config(bg=color_map[selected], text=f"선택: {selected}")
+
+window = tk.Tk()
+window.title("색상 선택")
+window.geometry("300x300")
+
+tk.Label(window, text="색상을 선택하세요",
+         font=("맑은 고딕", 12, "bold")).pack(pady=15)
+
+var = tk.StringVar(value="빨강")
+
+tk.Radiobutton(window, text="빨강", variable=var, value="빨강").pack(anchor="w", padx=50)
+tk.Radiobutton(window, text="파랑", variable=var, value="파랑").pack(anchor="w", padx=50)
+tk.Radiobutton(window, text="초록", variable=var, value="초록").pack(anchor="w", padx=50)
+tk.Radiobutton(window, text="노랑", variable=var, value="노랑").pack(anchor="w", padx=50)
+
+tk.Button(window, text="적용", command=apply_color, bg="lightgreen").pack(pady=15)
+
+result_label = tk.Label(window, text="선택: 빨강", bg="red",
+                        font=("맑은 고딕", 14), width=20, height=3, fg="white")
+result_label.pack(pady=10)
+
+window.mainloop()
+```
+
+핵심: 모든 라디오 버튼이 같은 `StringVar`를 공유하여 하나만 선택됩니다. 딕셔너리로 한국어 색상명을 영어 색상코드로 변환합니다.
+
+---
+
+### 🟡 중급
+
+**문제 24. 모범답안:**
+
+```python
+import tkinter as tk
+from tkinter import messagebox
+import os
+
+def save_memo():
+    content = text.get("1.0", tk.END).strip()
+    if not content:
+        messagebox.showwarning("경고", "저장할 내용이 없습니다!")
+        return
+    with open("memo.txt", "w", encoding="utf-8") as f:
+        f.write(content)
+    messagebox.showinfo("저장", "memo.txt에 저장되었습니다!")
+
+def load_memo():
+    if not os.path.exists("memo.txt"):
+        messagebox.showerror("오류", "memo.txt 파일이 없습니다!")
+        return
+    with open("memo.txt", "r", encoding="utf-8") as f:
+        content = f.read()
+    text.delete("1.0", tk.END)
+    text.insert("1.0", content)
+    messagebox.showinfo("불러오기", "파일을 불러왔습니다!")
+
+def clear_memo():
+    result = messagebox.askyesno("확인", "정말 전체 삭제하시겠습니까?")
+    if result:
+        text.delete("1.0", tk.END)
+
+# 윈도우 생성
+window = tk.Tk()
+window.title("간단한 메모장")
+window.geometry("450x400")
+
+tk.Label(window, text="메모장", font=("맑은 고딕", 16, "bold")).pack(pady=10)
+
+# Text + Scrollbar
+text_frame = tk.Frame(window)
+text_frame.pack(pady=10, padx=10)
+
+scrollbar = tk.Scrollbar(text_frame)
+scrollbar.pack(side="right", fill="y")
+
+text = tk.Text(text_frame, width=45, height=12, font=("맑은 고딕", 11),
+               yscrollcommand=scrollbar.set)
+text.pack(side="left")
+scrollbar.config(command=text.yview)
+
+# 버튼 영역
+btn_frame = tk.Frame(window)
+btn_frame.pack(pady=10)
+
+tk.Button(btn_frame, text="저장", command=save_memo, width=10,
+          bg="lightblue").pack(side="left", padx=5)
+tk.Button(btn_frame, text="불러오기", command=load_memo, width=10,
+          bg="lightgreen").pack(side="left", padx=5)
+tk.Button(btn_frame, text="지우기", command=clear_memo, width=10,
+          bg="lightcoral").pack(side="left", padx=5)
+
+window.mainloop()
+```
+
+핵심: `os.path.exists()`로 파일 존재 여부를 확인하고, `askyesno()`로 삭제 전 확인합니다. Scrollbar와 Text는 양방향으로 연결합니다.
+
+---
+
+**문제 25. 모범답안:**
+
+```python
+import tkinter as tk
+from tkinter import messagebox
+
+def calculate_bmi():
+    try:
+        height_cm = float(height_entry.get())
+        weight_kg = float(weight_entry.get())
+
+        if height_cm <= 0 or weight_kg <= 0:
+            messagebox.showerror("오류", "양수를 입력하세요!")
+            return
+
+        height_m = height_cm / 100
+        bmi = weight_kg / (height_m ** 2)
+
+        if bmi < 18.5:
+            category = "저체중"
+            color = "blue"
+        elif bmi < 25:
+            category = "정상"
+            color = "green"
+        elif bmi < 30:
+            category = "과체중"
+            color = "orange"
+        else:
+            category = "비만"
+            color = "red"
+
+        result_label.config(text=f"BMI: {bmi:.1f} ({category})", fg=color)
+
+    except ValueError:
+        messagebox.showerror("오류", "숫자를 입력하세요!")
+
+# 윈도우 생성
+window = tk.Tk()
+window.title("BMI 계산기")
+window.geometry("350x400")
+
+tk.Label(window, text="BMI 계산기",
+         font=("맑은 고딕", 18, "bold")).pack(pady=15)
+
+# 키 입력
+tk.Label(window, text="키 (cm):").pack()
+height_entry = tk.Entry(window, width=15, font=("맑은 고딕", 12))
+height_entry.pack(pady=5)
+
+# 키 슬라이더
+tk.Label(window, text="키 슬라이더 (참고용):").pack(pady=(10, 0))
+height_scale = tk.Scale(window, from_=100, to=220,
+                        orient="horizontal", length=250)
+height_scale.set(170)
+height_scale.pack()
+
+# 몸무게 입력
+tk.Label(window, text="몸무게 (kg):").pack(pady=(10, 0))
+weight_entry = tk.Entry(window, width=15, font=("맑은 고딕", 12))
+weight_entry.pack(pady=5)
+
+# 계산 버튼
+tk.Button(window, text="계산", command=calculate_bmi,
+          bg="lightblue", font=("맑은 고딕", 12), width=10).pack(pady=15)
+
+# 결과 표시
+result_label = tk.Label(window, text="", font=("맑은 고딕", 16, "bold"))
+result_label.pack(pady=10)
+
+window.mainloop()
+```
+
+핵심: `try-except ValueError`로 숫자 변환 오류를 처리하고, BMI 범위에 따라 다른 색상과 판정을 표시합니다.
+
+---
+
+### 🔴 고급
+
+**문제 26. 모범답안:**
+
+```python
+import tkinter as tk
+from tkinter import messagebox
+
+total_accumulated = 0
+
+def place_order():
+    global total_accumulated
+
+    # 메뉴 가격
+    menu_prices = {"짜장면": 7000, "짬뽕": 8000, "볶음밥": 8500}
+    selected_menu = menu_var.get()
+    base_price = menu_prices[selected_menu]
+
+    # 추가 옵션
+    extras = []
+    extra_total = 0
+    if extra1.get():
+        extras.append("곱빼기(+1500)")
+        extra_total += 1500
+    if extra2.get():
+        extras.append("음료(+2000)")
+        extra_total += 2000
+    if extra3.get():
+        extras.append("디저트(+3000)")
+        extra_total += 3000
+
+    # 수량
+    quantity = qty_scale.get()
+
+    # 총 금액
+    unit_price = base_price + extra_total
+    total = unit_price * quantity
+
+    # 주문 확인
+    extras_text = ", ".join(extras) if extras else "없음"
+    confirm = messagebox.askyesno("주문 확인",
+        f"메뉴: {selected_menu}\n추가: {extras_text}\n"
+        f"수량: {quantity}개\n총 금액: {total:,}원\n\n주문하시겠습니까?")
+
+    if confirm:
+        # Listbox에 추가
+        order_text = f"{selected_menu} x{quantity} = {total:,}원"
+        listbox.insert(tk.END, order_text)
+
+        # 누적 금액 업데이트
+        total_accumulated += total
+        total_label.config(text=f"총 누적 금액: {total_accumulated:,}원")
+
+        messagebox.showinfo("완료", f"주문이 완료되었습니다!\n금액: {total:,}원")
+
+# 윈도우 생성
+window = tk.Tk()
+window.title("주문 프로그램")
+window.geometry("400x550")
+
+tk.Label(window, text="🍜 주문 프로그램",
+         font=("맑은 고딕", 16, "bold")).pack(pady=10)
+
+# 메뉴 선택 (Radiobutton)
+tk.Label(window, text="메뉴 선택:", font=("맑은 고딕", 11, "bold")).pack(anchor="w", padx=20)
+menu_var = tk.StringVar(value="짜장면")
+
+menu_frame = tk.Frame(window)
+menu_frame.pack(anchor="w", padx=30)
+tk.Radiobutton(menu_frame, text="짜장면 (7,000원)", variable=menu_var, value="짜장면").pack(anchor="w")
+tk.Radiobutton(menu_frame, text="짬뽕 (8,000원)", variable=menu_var, value="짬뽕").pack(anchor="w")
+tk.Radiobutton(menu_frame, text="볶음밥 (8,500원)", variable=menu_var, value="볶음밥").pack(anchor="w")
+
+# 추가 옵션 (Checkbutton)
+tk.Label(window, text="추가 옵션:", font=("맑은 고딕", 11, "bold")).pack(anchor="w", padx=20, pady=(10, 0))
+extra1 = tk.IntVar()
+extra2 = tk.IntVar()
+extra3 = tk.IntVar()
+
+extra_frame = tk.Frame(window)
+extra_frame.pack(anchor="w", padx=30)
+tk.Checkbutton(extra_frame, text="곱빼기 (+1,500원)", variable=extra1).pack(anchor="w")
+tk.Checkbutton(extra_frame, text="음료 (+2,000원)", variable=extra2).pack(anchor="w")
+tk.Checkbutton(extra_frame, text="디저트 (+3,000원)", variable=extra3).pack(anchor="w")
+
+# 수량 (Scale)
+tk.Label(window, text="수량:", font=("맑은 고딕", 11, "bold")).pack(anchor="w", padx=20, pady=(10, 0))
+qty_scale = tk.Scale(window, from_=1, to=10, orient="horizontal", length=250)
+qty_scale.set(1)
+qty_scale.pack(padx=30, anchor="w")
+
+# 주문 버튼
+tk.Button(window, text="주문하기", command=place_order,
+          bg="lightblue", font=("맑은 고딕", 12, "bold"), width=15).pack(pady=10)
+
+# 주문 내역 (Listbox)
+tk.Label(window, text="주문 내역:", font=("맑은 고딕", 11, "bold")).pack(anchor="w", padx=20)
+listbox = tk.Listbox(window, width=45, height=5, font=("맑은 고딕", 10))
+listbox.pack(padx=20, pady=5)
+
+# 누적 금액
+total_label = tk.Label(window, text="총 누적 금액: 0원",
+                       font=("맑은 고딕", 12, "bold"), fg="blue")
+total_label.pack(pady=5)
+
+window.mainloop()
+```
+
+핵심 포인트:
+
+- Radiobutton(메뉴)은 같은 `menu_var`를 공유하여 하나만 선택됩니다.
+- Checkbutton(옵션)은 각각 독립적인 `IntVar`로 복수 선택이 가능합니다.
+- Scale로 수량을 직관적으로 선택합니다.
+- `askyesno()`로 주문 전 확인 과정을 거칩니다.
+- `global total_accumulated`로 주문마다 누적 금액을 관리합니다.
+- 총 금액 = (메뉴 가격 + 추가 옵션 합계) × 수량 공식을 적용합니다.
+
+---
+
+
+수고했습니다.   
+조정현 교수([peterchokr@gmail.com](mailto:peterchokr@gmail.com)) 영남이공대학교
+
+이 연습문제는 Claude 및 Gemini와 협업으로 제작되었습니다.
