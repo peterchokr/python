@@ -1,0 +1,945 @@
+# 20장 GUI 프로그래밍 1 (tkinter 기초) — 연습문제
+
+---
+
+## 📝 객관식 문제
+
+---
+
+### 🟢 초급
+
+**문제 1.** tkinter를 import하는 올바른 방법은?
+
+① `import tk`
+② `import tkinter`
+③ `import gui`
+④ `import window`
+
+---
+
+**문제 2.** GUI(Graphical User Interface)의 특징으로 올바른 것은?
+
+① 텍스트만으로 프로그램을 조작한다
+② **버튼, 메뉴 등 시각적 요소로 프로그램을 조작한다**
+③ 명령어를 입력하여 프로그램을 실행한다
+④ 키보드만 사용한다
+
+---
+
+**문제 3.** tkinter에서 윈도우를 실행하는 메서드는?
+
+① `run()`
+② `start()`
+③ `mainloop()`
+④ `execute()`
+
+---
+
+**문제 4.** 다음 코드에서 윈도우의 크기를 설정하는 부분은?
+
+```python
+window = tk.Tk()
+window.title("프로그램")
+window.geometry("400x300")
+window.mainloop()
+```
+
+① `tk.Tk()`
+② `window.title("프로그램")`
+③ `window.geometry("400x300")`
+④ `window.mainloop()`
+
+---
+
+**문제 5.** tkinter에서 텍스트를 화면에 표시하는 위젯은?
+
+① `Button`
+② `Label`
+③ `Entry`
+④ `Text`
+
+---
+
+**문제 6.** tkinter에서 버튼 클릭 시 함수를 연결하는 옵션은?
+
+① `onclick`
+② `command`
+③ `function`
+④ `event`
+
+---
+
+**문제 7.** `mainloop()`는 코드의 어디에 위치해야 하는가?
+
+① 코드의 맨 처음
+② import 문 바로 다음
+③ 위젯 생성 전
+④ **코드의 맨 마지막**
+
+---
+
+### 🟡 중급
+
+**문제 8.** Entry 위젯에서 입력값을 가져오는 메서드는?
+
+① `value()`
+② `text()`
+③ `get()`
+④ `read()`
+
+---
+
+**문제 9.** 위젯을 표(행/열) 형태로 배치하는 메서드는?
+
+① `pack()`
+② `grid()`
+③ `place()`
+④ `table()`
+
+---
+
+**문제 10.** 다음 코드에서 Label의 텍스트를 변경하는 올바른 방법은?
+
+```python
+label = tk.Label(window, text="기본 텍스트")
+label.pack()
+```
+
+① `label.text = "새 텍스트"`
+② `label.config(text="새 텍스트")`
+③ `label.set("새 텍스트")`
+④ `label.change("새 텍스트")`
+
+---
+
+**문제 11.** `pack()` 메서드에서 위아래 여백을 추가하는 옵션은?
+
+① `margin`
+② `padx`
+③ `pady`
+④ `spacing`
+
+---
+
+**문제 12.** Entry 위젯의 내용을 모두 지우는 올바른 코드는?
+
+① `entry.clear()`
+② `entry.delete(0, tk.END)`
+③ `entry.remove()`
+④ `entry.reset()`
+
+---
+
+### 🔴 고급
+
+**문제 13.** 다음 코드에서 `grid()`의 `sticky="e"`는 무엇을 의미하는가?
+
+```python
+tk.Label(window, text="이름:").grid(row=0, column=0, sticky="e")
+```
+
+① 위쪽 정렬 (north)
+② 아래쪽 정렬 (south)
+③ **오른쪽 정렬 (east)**
+④ 왼쪽 정렬 (west)
+
+---
+
+**문제 14.** 다음 코드의 동작 설명으로 올바른 것은?
+
+```python
+import tkinter as tk
+from tkinter import messagebox
+
+def check():
+    if entry.get() == "":
+        messagebox.showerror("오류", "입력이 비어있습니다!")
+    else:
+        messagebox.showinfo("성공", f"입력: {entry.get()}")
+
+window = tk.Tk()
+entry = tk.Entry(window)
+entry.pack()
+tk.Button(window, text="확인", command=check).pack()
+window.mainloop()
+```
+
+① 항상 성공 메시지만 표시된다
+② 항상 오류 메시지만 표시된다
+③ **Entry가 비어있으면 오류, 입력이 있으면 성공 메시지를 표시한다**
+④ 오류가 발생하여 실행되지 않는다
+
+---
+
+**문제 15.** 다음 코드에서 `columnspan=2`의 역할은?
+
+```python
+tk.Button(window, text="확인").grid(row=3, column=0, columnspan=2)
+```
+
+① 2개의 행을 차지한다
+② **2개의 열을 합쳐서 차지한다**
+③ 2번째 열에 배치한다
+④ 2번 반복 배치한다
+
+---
+
+## 📝 주관식 문제
+
+---
+
+### 🟢 초급
+
+**문제 16.** CLI(Command Line Interface)와 GUI(Graphical User Interface)의 차이점을 설명하시오. 각각의 장단점을 서술하시오.
+
+---
+
+**문제 17.** tkinter 프로그램의 기본 구조를 코드로 쓰고, 각 부분의 역할을 설명하시오. (윈도우 생성, 제목 설정, 크기 설정, 실행의 4단계)
+
+---
+
+**문제 18.** `pack()`과 `grid()`의 차이점을 설명하시오. 각각 어떤 상황에서 사용하면 좋은지 서술하시오.
+
+---
+
+### 🟡 중급
+
+**문제 19.** 다음 코드를 읽고, 실행 시 화면에 어떤 위젯들이 어떤 순서로 배치되는지 설명하시오. 버튼을 클릭하면 어떤 동작이 일어나는지 서술하시오.
+
+```python
+import tkinter as tk
+
+def greet():
+    name = entry.get()
+    label.config(text=f"안녕하세요, {name}님!")
+
+window = tk.Tk()
+window.title("인사 프로그램")
+window.geometry("300x200")
+
+tk.Label(window, text="이름을 입력하세요:").pack(pady=10)
+entry = tk.Entry(window, width=20)
+entry.pack(pady=5)
+tk.Button(window, text="인사하기", command=greet).pack(pady=10)
+label = tk.Label(window, text="", font=("맑은 고딕", 12))
+label.pack(pady=10)
+
+window.mainloop()
+```
+
+---
+
+**문제 20.** 다음 코드에서 `try-except`가 사용된 이유를 설명하시오. `ValueError`가 발생하는 상황과 그때의 화면 변화를 서술하시오.
+
+```python
+import tkinter as tk
+
+def calculate():
+    try:
+        num1 = float(entry1.get())
+        num2 = float(entry2.get())
+        result = num1 + num2
+        result_label.config(text=f"결과: {result}", fg="blue")
+    except ValueError:
+        result_label.config(text="숫자를 입력하세요!", fg="red")
+```
+
+---
+
+### 🔴 고급
+
+**문제 21.** 다음 로그인 화면 코드를 분석하시오. `grid()`를 사용한 레이아웃 구조를 표로 그리고, `messagebox`의 두 가지 함수(`showinfo`, `showerror`)가 각각 언제 호출되는지 설명하시오.
+
+```python
+import tkinter as tk
+from tkinter import messagebox
+
+def login():
+    username = username_entry.get()
+    password = password_entry.get()
+    if username == "admin" and password == "1234":
+        messagebox.showinfo("성공", f"환영합니다, {username}님!")
+    else:
+        messagebox.showerror("오류", "아이디 또는 비밀번호가 틀렸습니다!")
+
+window = tk.Tk()
+window.title("로그인")
+window.geometry("350x200")
+
+tk.Label(window, text="로그인", font=("맑은 고딕", 18, "bold")).grid(
+    row=0, column=0, columnspan=2, pady=20)
+tk.Label(window, text="아이디:").grid(row=1, column=0, sticky="e", padx=10)
+username_entry = tk.Entry(window, width=20)
+username_entry.grid(row=1, column=1)
+tk.Label(window, text="비밀번호:").grid(row=2, column=0, sticky="e", padx=10)
+password_entry = tk.Entry(window, width=20, show="*")
+password_entry.grid(row=2, column=1)
+tk.Button(window, text="로그인", command=login, width=15).grid(
+    row=3, column=0, columnspan=2, pady=20)
+window.mainloop()
+```
+
+---
+
+## 💻 실습형 문제
+
+---
+
+### 🟢 초급
+
+**문제 22.** 다음 요구사항에 맞는 tkinter 프로그램의 코드를 작성하시오.
+
+> **인사 프로그램**
+>
+> - 윈도우 제목: "인사 프로그램", 크기: 300x200
+> - 안내 Label: "이름을 입력하세요:"
+> - Entry: 이름 입력 상자
+> - Button: "인사하기" 클릭 시 결과 Label에 "안녕하세요, OOO님!" 표시
+> - 결과 Label: 인사 메시지 표시
+
+---
+
+**문제 23.** 다음 요구사항에 맞는 tkinter 프로그램의 코드를 작성하시오.
+
+> **카운터 프로그램**
+>
+> - 윈도우 제목: "카운터", 크기: 300x200
+> - 숫자 Label: 현재 숫자 표시 (초기값 0, 큰 폰트)
+> - "+1" 버튼: 클릭 시 숫자 1 증가
+> - "-1" 버튼: 클릭 시 숫자 1 감소 (0 이하로 내려가지 않음)
+> - "리셋" 버튼: 클릭 시 숫자 0으로 초기화
+
+---
+
+### 🟡 중급
+
+**문제 24.** 다음 요구사항에 맞는 tkinter 계산기 프로그램의 코드를 작성하시오.
+
+> **사칙연산 계산기**
+>
+> - 두 개의 Entry로 숫자 입력
+> - 4개의 버튼: +, -, ×, ÷
+> - 결과 Label에 계산 결과 표시
+> - 숫자가 아닌 값 입력 시 오류 메시지 (try-except)
+> - 0으로 나누기 시 오류 메시지
+> - "지우기" 버튼으로 입력 초기화
+
+---
+
+**문제 25.** 다음 요구사항에 맞는 tkinter 할 일 목록 프로그램의 코드를 작성하시오.
+
+> **할 일 목록**
+>
+> - Entry와 "추가" 버튼으로 할 일 입력
+> - Listbox에 할 일 목록 표시
+> - "삭제" 버튼: 선택한 항목 삭제 (선택 안 하면 오류 메시지)
+> - "전체 삭제" 버튼: 모든 항목 삭제
+> - 상태 Label: 현재 할 일 개수 표시 ("할 일: N개")
+> - 빈 입력 방지 (빈 문자열이면 추가 안 됨)
+
+---
+
+### 🔴 고급
+
+**문제 26.** 다음 요구사항에 맞는 tkinter 학생 성적 관리 프로그램의 코드를 작성하시오.
+
+> **학생 성적 관리**
+>
+> - `grid()` 레이아웃 사용
+> - Entry 2개: 이름, 점수 입력
+> - "추가" 버튼: Listbox에 "이름: 점수점 (학점)" 형태로 추가
+>   - 학점 기준: 90↑ A, 80↑ B, 70↑ C, 60↑ D, 나머지 F
+> - "삭제" 버튼: 선택한 학생 삭제
+> - 통계 Label: 학생 수, 평균 점수 표시
+> - 점수 유효성 검사: 0~100 사이가 아니면 오류 메시지 (try-except)
+> - 이름이 비어있으면 오류 메시지
+
+---
+
+---
+
+# 🔑 정답 및 해설
+
+---
+
+## 📝 객관식 정답
+
+---
+
+### 🟢 초급
+
+**문제 1. 정답: ② `import tkinter`**
+
+tkinter는 파이썬에 기본으로 포함된 GUI 라이브러리입니다. `import tkinter` 또는 `import tkinter as tk`로 사용합니다.
+
+---
+
+**문제 2. 정답: ② 버튼, 메뉴 등 시각적 요소로 프로그램을 조작한다**
+
+GUI는 Graphical User Interface의 약자로, 시각적 요소(버튼, 메뉴, 텍스트 상자 등)를 통해 프로그램을 조작합니다.
+
+---
+
+**문제 3. 정답: ③ `mainloop()`**
+
+`mainloop()`는 윈도우를 실행하고 이벤트 루프를 시작하는 메서드입니다. 이 메서드가 있어야 윈도우가 화면에 나타납니다.
+
+---
+
+**문제 4. 정답: ③ `window.geometry("400x300")`**
+
+`geometry("가로x세로")` 메서드로 윈도우 크기를 설정합니다. `"400x300"`은 가로 400픽셀, 세로 300픽셀입니다.
+
+---
+
+**문제 5. 정답: ② `Label`**
+
+`Label`은 텍스트나 이미지를 화면에 표시하는 위젯입니다. `tk.Label(window, text="텍스트")`로 생성합니다.
+
+---
+
+**문제 6. 정답: ② `command`**
+
+`Button`의 `command` 옵션에 함수를 지정하면, 버튼 클릭 시 해당 함수가 실행됩니다. 예: `tk.Button(window, command=my_func)`
+
+---
+
+**문제 7. 정답: ④ 코드의 맨 마지막**
+
+`mainloop()`는 이벤트 루프를 시작하므로 모든 위젯 생성 후 맨 마지막에 호출해야 합니다.
+
+---
+
+### 🟡 중급
+
+**문제 8. 정답: ③ `get()`**
+
+`entry.get()`으로 Entry 위젯에 입력된 텍스트를 문자열로 가져옵니다.
+
+---
+
+**문제 9. 정답: ② `grid()`**
+
+`grid(row=행, column=열)` 형태로 위젯을 표처럼 행과 열에 배치합니다.
+
+---
+
+**문제 10. 정답: ② `label.config(text="새 텍스트")`**
+
+`config()` 메서드(또는 `configure()`)로 위젯의 속성을 변경합니다.
+
+---
+
+**문제 11. 정답: ③ `pady`**
+
+`pady`는 위아래(y축) 여백, `padx`는 좌우(x축) 여백을 설정합니다.
+
+---
+
+**문제 12. 정답: ② `entry.delete(0, tk.END)`**
+
+`delete(시작, 끝)` 메서드로 Entry의 내용을 삭제합니다. `0`부터 `tk.END`까지 삭제하면 전체 내용이 지워집니다.
+
+---
+
+### 🔴 고급
+
+**문제 13. 정답: ③ 오른쪽 정렬 (east)**
+
+`sticky`는 위젯의 정렬 방향을 설정합니다. `"e"`는 east(동쪽=오른쪽), `"w"`는 west(서쪽=왼쪽), `"n"`은 north(북쪽=위), `"s"`는 south(남쪽=아래)입니다.
+
+---
+
+**문제 14. 정답: ③ Entry가 비어있으면 오류, 입력이 있으면 성공 메시지를 표시한다**
+
+`entry.get() == ""`이면 `messagebox.showerror`로 오류 팝업을, 입력이 있으면 `messagebox.showinfo`로 성공 팝업을 표시합니다.
+
+---
+
+**문제 15. 정답: ② 2개의 열을 합쳐서 차지한다**
+
+`columnspan=2`는 column 0과 column 1을 합쳐서 버튼이 2열에 걸쳐 배치됩니다. 중앙 정렬 효과를 줄 때 자주 사용합니다.
+
+---
+
+## 📝 주관식 정답
+
+---
+
+### 🟢 초급
+
+**문제 16. 모범답안:**
+
+**CLI (Command Line Interface)**:
+
+- 텍스트 기반 인터페이스로, 명령어를 직접 입력하여 프로그램을 조작합니다.
+- 장점: 빠르고 효율적, 자동화/스크립팅에 유리, 리소스 적게 사용
+- 단점: 명령어를 알아야 하므로 초보자에게 어려움
+
+**GUI (Graphical User Interface)**:
+
+- 시각적 요소(버튼, 메뉴, 텍스트 상자)를 통해 마우스 클릭으로 프로그램을 조작합니다.
+- 장점: 직관적이고 사용하기 쉬움, 일반 사용자도 쉽게 사용 가능, 시각적으로 보기 좋음
+- 단점: CLI보다 개발이 복잡, 더 많은 시스템 리소스 사용
+
+---
+
+**문제 17. 모범답안:**
+
+```python
+import tkinter as tk          # 1단계: tkinter 라이브러리 불러오기
+
+window = tk.Tk()              # 2단계: 윈도우(창) 생성
+window.title("프로그램 제목")  # 3단계: 윈도우 제목 설정
+window.geometry("400x300")    # 4단계: 윈도우 크기 설정 (가로x세로 픽셀)
+
+# (여기에 위젯 추가)
+
+window.mainloop()             # 5단계: 윈도우 실행 (이벤트 루프 시작)
+```
+
+- `tk.Tk()`: 윈도우 객체를 생성합니다.
+- `title()`: 윈도우 상단 제목 표시줄에 표시될 텍스트를 설정합니다.
+- `geometry()`: `"가로x세로"` 형태로 윈도우 크기를 픽셀 단위로 설정합니다.
+- `mainloop()`: 프로그램이 종료되지 않고 이벤트(클릭, 입력 등)를 계속 감시합니다. 항상 코드의 마지막에 위치해야 합니다.
+
+---
+
+**문제 18. 모범답안:**
+
+**`pack()`**:
+
+- 위젯을 위에서 아래로(또는 좌우로) 순서대로 배치합니다.
+- `side` 옵션으로 방향 지정: `"top"`, `"bottom"`, `"left"`, `"right"`
+- 사용 시기: 간단한 수직/수평 배치, 위젯이 적을 때
+
+**`grid()`**:
+
+- 위젯을 행(row)과 열(column)로 구성된 표 형태로 배치합니다.
+- `row`, `column`, `sticky`, `columnspan` 등의 옵션으로 세밀하게 제어
+- 사용 시기: 입력 폼(이름, 나이 등), 로그인 화면처럼 정렬이 필요한 복잡한 레이아웃
+
+주의: 같은 컨테이너(프레임/윈도우) 안에서 `pack()`과 `grid()`를 혼용하면 안 됩니다.
+
+---
+
+### 🟡 중급
+
+**문제 19. 모범답안:**
+
+화면 배치 순서 (위에서 아래로 `pack()`):
+
+1. Label: `"이름을 입력하세요:"` (여백 pady=10)
+2. Entry: 너비 20인 입력 상자 (여백 pady=5)
+3. Button: `"인사하기"` 텍스트 (여백 pady=10)
+4. Label: 빈 텍스트, 큰 폰트 (여백 pady=10)
+
+버튼 클릭 시 동작:
+
+- `greet()` 함수가 호출됩니다.
+- `entry.get()`으로 Entry에 입력된 이름을 가져옵니다.
+- `label.config(text=f"안녕하세요, {name}님!")`으로 하단 Label의 텍스트를 변경합니다.
+- 예: "홍길동" 입력 후 버튼 클릭 → "안녕하세요, 홍길동님!" 표시
+
+---
+
+**문제 20. 모범답안:**
+
+`try-except`가 사용된 이유:
+
+- Entry에서 `get()`으로 가져온 값은 항상 **문자열**입니다.
+- `float()`로 변환할 때, 사용자가 `"abc"`처럼 숫자가 아닌 값을 입력하면 **`ValueError`가 발생**합니다.
+- `try-except`로 이 오류를 잡아서 프로그램이 종료되지 않도록 합니다.
+
+`ValueError` 발생 상황과 화면 변화:
+
+- 발생: `"abc"`, `""`, `"10+5"` 등 `float()`로 변환할 수 없는 문자열 입력 시
+- 화면 변화: `result_label`의 텍스트가 `"숫자를 입력하세요!"`로 변경되고, 글자 색이 빨간색(`fg="red"`)으로 바뀝니다.
+- 정상 입력 시: 계산 결과가 파란색(`fg="blue"`)으로 표시됩니다.
+
+---
+
+### 🔴 고급
+
+**문제 21. 모범답안:**
+
+**`grid()` 레이아웃 구조:**
+
+| row\col | column 0                          | column 1            |
+| ------- | --------------------------------- | ------------------- |
+| row 0   | "로그인" (columnspan=2, 2열 합침) |                     |
+| row 1   | "아이디:" (sticky="e")            | Entry (아이디 입력) |
+| row 2   | "비밀번호:" (sticky="e")          | Entry (show="*")    |
+| row 3   | "로그인" 버튼 (columnspan=2)      |                     |
+
+- `sticky="e"`: Label이 오른쪽(east) 정렬 → Entry와 가까이 붙음
+- `columnspan=2`: 제목과 버튼이 2열을 합쳐서 중앙에 배치
+- `show="*"`: 비밀번호 입력 시 `*`로 표시 (보안)
+
+**messagebox 호출 조건:**
+
+- `messagebox.showinfo("성공", ...)`: 아이디가 `"admin"`이고 비밀번호가 `"1234"`일 때 → 성공 알림창
+- `messagebox.showerror("오류", ...)`: 위 조건이 아닐 때 → 오류 알림창
+
+---
+
+## 💻 실습형 정답
+
+---
+
+### 🟢 초급
+
+**문제 22. 모범답안:**
+
+```python
+import tkinter as tk
+
+def greet():
+    name = entry.get()
+    if name:
+        result_label.config(text=f"안녕하세요, {name}님!")
+    else:
+        result_label.config(text="이름을 입력하세요!")
+
+# 윈도우 생성
+window = tk.Tk()
+window.title("인사 프로그램")
+window.geometry("300x200")
+
+# 안내 Label
+tk.Label(window, text="이름을 입력하세요:").pack(pady=10)
+
+# 입력 Entry
+entry = tk.Entry(window, width=20)
+entry.pack(pady=5)
+
+# 버튼
+tk.Button(window, text="인사하기", command=greet).pack(pady=10)
+
+# 결과 Label
+result_label = tk.Label(window, text="", font=("맑은 고딕", 12))
+result_label.pack(pady=10)
+
+window.mainloop()
+```
+
+핵심: `entry.get()`으로 입력값을 가져오고, `label.config(text=...)`로 Label 텍스트를 변경합니다.
+
+---
+
+**문제 23. 모범답안:**
+
+```python
+import tkinter as tk
+
+count = 0
+
+def increase():
+    global count
+    count += 1
+    label.config(text=str(count))
+
+def decrease():
+    global count
+    if count > 0:
+        count -= 1
+    label.config(text=str(count))
+
+def reset():
+    global count
+    count = 0
+    label.config(text=str(count))
+
+# 윈도우 생성
+window = tk.Tk()
+window.title("카운터")
+window.geometry("300x200")
+
+# 숫자 표시 Label
+label = tk.Label(window, text="0", font=("맑은 고딕", 40, "bold"))
+label.pack(pady=20)
+
+# 버튼 영역
+button_frame = tk.Frame(window)
+button_frame.pack()
+
+tk.Button(button_frame, text="-1", command=decrease, width=8).pack(side="left", padx=5)
+tk.Button(button_frame, text="리셋", command=reset, width=8).pack(side="left", padx=5)
+tk.Button(button_frame, text="+1", command=increase, width=8).pack(side="left", padx=5)
+
+window.mainloop()
+```
+
+핵심: `global count`로 함수 안에서 외부 변수를 수정합니다. `decrease()`에서 `count > 0` 조건으로 음수를 방지합니다.
+
+---
+
+### 🟡 중급
+
+**문제 24. 모범답안:**
+
+```python
+import tkinter as tk
+
+def calculate(operator):
+    try:
+        num1 = float(entry1.get())
+        num2 = float(entry2.get())
+
+        if operator == "+":
+            result = num1 + num2
+        elif operator == "-":
+            result = num1 - num2
+        elif operator == "×":
+            result = num1 * num2
+        elif operator == "÷":
+            if num2 == 0:
+                result_label.config(text="0으로 나눌 수 없습니다!", fg="red")
+                return
+            result = num1 / num2
+
+        result_label.config(text=f"결과: {result}", fg="blue")
+
+    except ValueError:
+        result_label.config(text="숫자를 입력하세요!", fg="red")
+
+def clear():
+    entry1.delete(0, tk.END)
+    entry2.delete(0, tk.END)
+    result_label.config(text="")
+
+# 윈도우 생성
+window = tk.Tk()
+window.title("사칙연산 계산기")
+window.geometry("400x300")
+
+# 제목
+tk.Label(window, text="계산기", font=("맑은 고딕", 18, "bold")).pack(pady=10)
+
+# 입력 영역
+tk.Label(window, text="숫자 1:").pack()
+entry1 = tk.Entry(window, width=20, font=("맑은 고딕", 12))
+entry1.pack(pady=3)
+
+tk.Label(window, text="숫자 2:").pack()
+entry2 = tk.Entry(window, width=20, font=("맑은 고딕", 12))
+entry2.pack(pady=3)
+
+# 연산 버튼들
+op_frame = tk.Frame(window)
+op_frame.pack(pady=10)
+
+tk.Button(op_frame, text="+", width=5, command=lambda: calculate("+")).pack(side="left", padx=3)
+tk.Button(op_frame, text="-", width=5, command=lambda: calculate("-")).pack(side="left", padx=3)
+tk.Button(op_frame, text="×", width=5, command=lambda: calculate("×")).pack(side="left", padx=3)
+tk.Button(op_frame, text="÷", width=5, command=lambda: calculate("÷")).pack(side="left", padx=3)
+tk.Button(op_frame, text="지우기", width=7, command=clear, bg="lightcoral").pack(side="left", padx=3)
+
+# 결과 표시
+result_label = tk.Label(window, text="", font=("맑은 고딕", 14, "bold"))
+result_label.pack(pady=10)
+
+window.mainloop()
+```
+
+핵심: `lambda`를 사용하여 `command`에 매개변수를 전달합니다. `try-except`로 숫자 변환 오류를 처리하고, 0 나누기도 별도로 검사합니다.
+
+---
+
+**문제 25. 모범답안:**
+
+```python
+import tkinter as tk
+
+def add_task():
+    task = entry.get()
+    if task.strip() == "":
+        status_label.config(text="할 일을 입력하세요!", fg="red")
+        return
+    listbox.insert(tk.END, task)
+    entry.delete(0, tk.END)
+    update_count()
+
+def delete_task():
+    try:
+        index = listbox.curselection()[0]
+        listbox.delete(index)
+        status_label.config(text="삭제 완료", fg="green")
+        update_count()
+    except IndexError:
+        status_label.config(text="삭제할 항목을 선택하세요!", fg="red")
+
+def clear_all():
+    listbox.delete(0, tk.END)
+    status_label.config(text="전체 삭제 완료", fg="green")
+    update_count()
+
+def update_count():
+    count = listbox.size()
+    count_label.config(text=f"할 일: {count}개")
+
+# 윈도우 생성
+window = tk.Tk()
+window.title("할 일 목록")
+window.geometry("400x450")
+
+# 제목
+tk.Label(window, text="오늘의 할 일", font=("맑은 고딕", 18, "bold")).pack(pady=15)
+
+# 입력 영역
+input_frame = tk.Frame(window)
+input_frame.pack(pady=5)
+
+entry = tk.Entry(input_frame, width=25, font=("맑은 고딕", 11))
+entry.pack(side="left", padx=5)
+
+tk.Button(input_frame, text="추가", command=add_task, bg="lightblue", width=8).pack(side="left")
+
+# 리스트
+listbox = tk.Listbox(window, width=40, height=10, font=("맑은 고딕", 11))
+listbox.pack(pady=10)
+
+# 버튼 영역
+btn_frame = tk.Frame(window)
+btn_frame.pack(pady=5)
+
+tk.Button(btn_frame, text="삭제", command=delete_task, bg="lightcoral", width=10).pack(side="left", padx=5)
+tk.Button(btn_frame, text="전체 삭제", command=clear_all, bg="lightgray", width=10).pack(side="left", padx=5)
+
+# 상태 표시
+count_label = tk.Label(window, text="할 일: 0개", font=("맑은 고딕", 11))
+count_label.pack(pady=5)
+
+status_label = tk.Label(window, text="", font=("맑은 고딕", 10))
+status_label.pack(pady=3)
+
+window.mainloop()
+```
+
+핵심: `listbox.curselection()`으로 선택된 항목의 인덱스를 가져옵니다. 선택 안 하면 빈 튜플이므로 `IndexError`로 처리합니다. `listbox.size()`로 항목 수를 얻습니다.
+
+---
+
+### 🔴 고급
+
+**문제 26. 모범답안:**
+
+```python
+import tkinter as tk
+from tkinter import messagebox
+
+# 학생 데이터 저장
+students = []
+
+def get_grade(score):
+    if score >= 90: return "A"
+    elif score >= 80: return "B"
+    elif score >= 70: return "C"
+    elif score >= 60: return "D"
+    else: return "F"
+
+def add_student():
+    name = name_entry.get().strip()
+    score_text = score_entry.get().strip()
+
+    # 이름 검증
+    if name == "":
+        messagebox.showerror("오류", "이름을 입력하세요!")
+        return
+
+    # 점수 검증
+    try:
+        score = int(score_text)
+    except ValueError:
+        messagebox.showerror("오류", "점수는 숫자로 입력하세요!")
+        return
+
+    if score < 0 or score > 100:
+        messagebox.showerror("오류", "점수는 0~100 사이여야 합니다!")
+        return
+
+    # 학생 추가
+    grade = get_grade(score)
+    students.append({"name": name, "score": score, "grade": grade})
+    listbox.insert(tk.END, f"{name}: {score}점 ({grade})")
+
+    # 입력 초기화
+    name_entry.delete(0, tk.END)
+    score_entry.delete(0, tk.END)
+    update_stats()
+
+def delete_student():
+    try:
+        index = listbox.curselection()[0]
+        listbox.delete(index)
+        students.pop(index)
+        update_stats()
+    except IndexError:
+        messagebox.showerror("오류", "삭제할 학생을 선택하세요!")
+
+def update_stats():
+    count = len(students)
+    if count == 0:
+        stats_label.config(text="학생: 0명 | 평균: -")
+    else:
+        avg = sum(s["score"] for s in students) / count
+        stats_label.config(text=f"학생: {count}명 | 평균: {avg:.1f}점")
+
+# 윈도우 생성
+window = tk.Tk()
+window.title("학생 성적 관리")
+window.geometry("450x500")
+
+# 제목
+tk.Label(window, text="학생 성적 관리",
+         font=("맑은 고딕", 18, "bold")).grid(
+    row=0, column=0, columnspan=2, pady=15)
+
+# 이름 입력
+tk.Label(window, text="이름:", font=("맑은 고딕", 11)).grid(
+    row=1, column=0, sticky="e", padx=10, pady=5)
+name_entry = tk.Entry(window, width=20, font=("맑은 고딕", 11))
+name_entry.grid(row=1, column=1, pady=5)
+
+# 점수 입력
+tk.Label(window, text="점수:", font=("맑은 고딕", 11)).grid(
+    row=2, column=0, sticky="e", padx=10, pady=5)
+score_entry = tk.Entry(window, width=20, font=("맑은 고딕", 11))
+score_entry.grid(row=2, column=1, pady=5)
+
+# 버튼 영역
+btn_frame = tk.Frame(window)
+btn_frame.grid(row=3, column=0, columnspan=2, pady=10)
+
+tk.Button(btn_frame, text="추가", command=add_student,
+          bg="lightgreen", width=10).pack(side="left", padx=5)
+tk.Button(btn_frame, text="삭제", command=delete_student,
+          bg="lightcoral", width=10).pack(side="left", padx=5)
+
+# 학생 목록
+listbox = tk.Listbox(window, width=40, height=10,
+                     font=("맑은 고딕", 11))
+listbox.grid(row=4, column=0, columnspan=2, pady=10, padx=20)
+
+# 통계
+stats_label = tk.Label(window, text="학생: 0명 | 평균: -",
+                       font=("맑은 고딕", 12, "bold"))
+stats_label.grid(row=5, column=0, columnspan=2, pady=10)
+
+window.mainloop()
+```
+
+핵심 포인트:
+
+- `grid()`로 레이아웃을 구성하되, 버튼 영역은 `Frame` 안에서 `pack()`을 사용합니다 (같은 컨테이너 안에서만 혼용 금지).
+- `try-except ValueError`로 점수 입력 오류를 처리합니다.
+- `students` 리스트와 `listbox`의 인덱스를 동기화하여, 삭제 시 둘 다 같은 위치에서 제거합니다.
+- `update_stats()`를 추가/삭제마다 호출하여 통계를 자동 업데이트합니다.
+- `messagebox.showerror()`로 팝업 형태의 오류 메시지를 표시합니다.
+
+---
+
+수고했습니다.   
+조정현 교수([peterchokr@gmail.com](mailto:peterchokr@gmail.com)) 영남이공대학교
+
+이 연습문제는 Claude 및 Gemini와 협업으로 제작되었습니다.
