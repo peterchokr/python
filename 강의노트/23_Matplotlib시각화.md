@@ -926,11 +926,11 @@ plt.scatter(female_ages, female_sats, label='여성', color='red', s=100)
 
 ## 🔑 **퀴즈 정답**
 
-**1번**: matplotlib
-**2번**: plt.bar()
-**3번**: plt.show()
-**4번**: plt.subplot()
-**5번**: plt.savefig()
+**1번**: matplotlib   
+**2번**: plt.bar()   
+**3번**: plt.show()   
+**4번**: plt.subplot()   
+**5번**: plt.savefig()   
 
 ---
 
