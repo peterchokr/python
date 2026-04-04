@@ -257,72 +257,7 @@ print("\n" + "-" * 40)
 
 ---
 
-## 5️⃣ **while True와 break 조합**
-
-무한 반복을 만들고 특정 조건에서 break로 빠져나오는 패턴은 매우 유용합니다.
-
-### **예제 5: 쇼핑 장바구니**
-
-원하는 만큼 상품을 담고, 종료 신호를 받으면 총 금액을 계산하는 프로그램입니다.
-
-```python
-# 쇼핑 장바구니 프로그램
-print("🛒" + "=" * 38 + "🛒")
-print("   쇼핑 장바구니")
-print("🛒" + "=" * 38 + "🛒")
-
-print("\n상품을 추가하세요 (종료: 'q' 입력)")
-print("-" * 40)
-
-total_price = 0
-item_count = 0
-
-while True:
-    product = input("\n상품명 (종료: q): ")
-  
-    # 종료 조건
-    if product == 'q' or product == 'Q':
-        break
-  
-    # 빈 입력 무시
-    if product == "":
-        continue
-  
-    price = int(input("가격: "))
-  
-    # 가격이 0원 이하면 무시
-    if price <= 0:
-        print("⚠️ 올바른 가격을 입력하세요.")
-        continue
-  
-    item_count = item_count + 1
-    total_price = total_price + price
-    print(f"✓ {product} 추가됨 ({price:,}원)")
-
-# 결과 출력
-print("\n" + "=" * 40)
-print("장바구니 요약")
-print("=" * 40)
-print(f"총 상품 수: {item_count}개")
-print(f"총 금액: {total_price:,}원")
-
-# 배달비 계산
-if total_price >= 30000:
-    delivery = 0
-    print(f"배달비: 무료")
-else:
-    delivery = 3000
-    print(f"배달비: {delivery:,}원")
-
-final_price = total_price + delivery
-print("-" * 40)
-print(f"최종 결제: {final_price:,}원")
-print("=" * 40)
-```
-
----
-
-## 6️⃣ **중첩 반복문과 제어문**
+## 5️⃣ **중첩 반복문과 제어문**
 
 중첩된 반복문에서 break와 continue를 사용할 때는 주의가 필요합니다.
 
@@ -345,7 +280,7 @@ for i in range(1, 4):
 #   안쪽 반복: 1
 ```
 
-### **예제 6: 구구단 게임**
+### **예제 5: 구구단 게임**
 
 구구단 문제를 맞출 때까지 반복하는 게임입니다.
 
@@ -401,11 +336,11 @@ print("=" * 40)
 
 ---
 
-## 7️⃣ **무한 루프 활용**
+## 6️⃣ **무한 루프 활용**
 
 프로그램이 계속 실행되어야 할 때 무한 루프를 활용합니다.
 
-### **예제 7: 간단한 계산기**
+### **예제 6: 간단한 계산기**
 
 종료할 때까지 계속 계산하는 프로그램입니다.
 
