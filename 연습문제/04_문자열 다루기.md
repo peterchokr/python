@@ -1,0 +1,698 @@
+# 4장 문자열 다루기 — 연습문제
+
+---
+
+## 📝 객관식 문제
+
+---
+
+### 🟢 초급
+
+**문제 1.** 다음 코드의 실행 결과는?
+
+```python
+text = "Hello"
+print(text[0])
+```
+
+① H
+② e
+③ o
+④ Hello
+
+---
+
+**문제 2.** 다음 코드의 실행 결과는?
+
+```python
+text = "Python"
+print(text[-1])
+```
+
+① P
+② n
+③ o
+④ 오류 발생
+
+---
+
+**문제 3.** 여러 줄 문자열을 만들 때 사용하는 것은?
+
+① 큰따옴표 `""`
+② 작은따옴표 `''`
+③ 삼중 따옴표 `"""`
+④ 괄호 `()`
+
+---
+
+**문제 4.** 다음 중 줄바꿈을 나타내는 이스케이프 문자는?
+
+① `\t`
+② `\n`
+③ `\\`
+④ `\"`
+
+---
+
+**문제 5.** 다음 코드의 실행 결과는?
+
+```python
+text = "Python"
+print(len(text))
+```
+
+① 5
+② 6
+③ 7
+④ 오류 발생
+
+---
+
+**문제 6.** 다음 코드의 실행 결과는?
+
+```python
+text = "hello"
+print(text.upper())
+```
+
+① hello
+② Hello
+③ HELLO
+④ hELLO
+
+---
+
+**문제 7.** 문자열은 불변(immutable)이다. 다음 중 오류가 발생하는 코드는?
+
+① `text = "Hello"; text = "World"`
+② `text = "Hello"; print(text.upper())`
+③ `text = "Hello"; text[0] = "h"`
+④ `text = "Hello"; new = text.replace("H", "h")`
+
+---
+
+### 🟡 중급
+
+**문제 8.** 다음 코드의 실행 결과는?
+
+```python
+text = "Hello, World!"
+print(text[7:12])
+```
+
+① Hello
+② World
+③ World!
+④ , Wor
+
+---
+
+**문제 9.** 다음 코드의 실행 결과는?
+
+```python
+text = "   Python   "
+result = text.strip()
+print(f"[{result}]")
+```
+
+① `[   Python   ]`
+② `[Python   ]`
+③ `[   Python]`
+④ `[Python]`
+
+---
+
+**문제 10.** 다음 코드의 실행 결과는?
+
+```python
+text = "apple,banana,cherry"
+result = text.split(',')
+print(result[1])
+```
+
+① apple
+② banana
+③ cherry
+④ apple,banana,cherry
+
+---
+
+**문제 11.** 다음 코드의 실행 결과는?
+
+```python
+text = "Python is fun"
+print(text.find('is'))
+```
+
+① 6
+② 7
+③ True
+④ 2
+
+---
+
+**문제 12.** 다음 코드의 실행 결과는?
+
+```python
+words = ['Hello', 'World']
+result = ' '.join(words)
+print(result)
+```
+
+① HelloWorld
+② Hello World
+③ Hello, World
+④ ['Hello', 'World']
+
+---
+
+### 🔴 고급
+
+**문제 13.** 다음 코드의 실행 결과는?
+
+```python
+text = "Programming"
+print(text[::2])
+```
+
+① Prog
+② Prga
+③ Pormig
+④ rgamn
+
+---
+
+**문제 14.** 다음 코드의 실행 결과는?
+
+```python
+text = "Hello, Python!"
+result = text.replace("Python", "World").split(",")
+print(result[1].strip())
+```
+
+① Hello
+② Python!
+③ World!
+④ , World!
+
+---
+
+**문제 15.** 다음 코드의 실행 결과는?
+
+```python
+name = "alice"
+score = 95.678
+print(f"{name.title():>10}: {score:<8.1f}점")
+```
+
+① `Alice    : 95.7    점`
+② `     Alice: 95.7    점`
+③ `Alice: 95.7점`
+④ 오류 발생
+
+---
+
+## 📝 주관식 문제
+
+---
+
+### 🟢 초급
+
+**문제 16.** 문자열 `"Python"`에서 양수 인덱스와 음수 인덱스를 사용하여 첫 번째 문자와 마지막 문자에 접근하는 코드를 각각 쓰시오.
+
+---
+
+**문제 17.** 슬라이싱 문법 `[시작:끝:간격]`에서 각 요소의 의미를 설명하고, 문자열 `"abcdefg"`에서 `"ace"`를 추출하는 코드를 쓰시오.
+
+---
+
+**문제 18.** 다음 코드의 실행 결과를 쓰시오.
+
+```python
+text = "Python Programming"
+print(text[:6])
+print(text[7:])
+print(text[::-1])
+```
+
+---
+
+### 🟡 중급
+
+**문제 19.** `find()`, `count()`, `replace()` 메서드의 기능을 각각 설명하고, 다음 코드의 실행 결과를 쓰시오.
+
+```python
+msg = "Hello Python Hello World"
+print(msg.find("Hello"))
+print(msg.count("Hello"))
+print(msg.replace("Hello", "Hi", 1))
+```
+
+---
+
+**문제 20.** 다음 코드에서 오류가 발생하는 이유를 설명하고, f-string을 사용하여 올바르게 수정한 코드를 작성하시오.
+
+```python
+name = "김영희"
+age = 22
+message = "이름: " + name + ", 나이: " + age + "세"
+print(message)
+```
+
+---
+
+### 🔴 고급
+
+**문제 21.** 다음 코드의 실행 결과를 쓰고, 각 단계의 동작을 설명하시오.
+
+```python
+email = "Student@University.AC.KR"
+parts = email.lower().split('@')
+user_id = parts[0]
+domain = parts[1]
+tld = domain.split('.')[-1]
+print(f"ID: {user_id}, Domain: {domain}, TLD: {tld}")
+```
+
+---
+
+## 💻 실습형 문제
+
+---
+
+### 🟢 초급
+
+**문제 22.** 다음 요구사항에 맞는 프로그램을 작성하시오.
+
+> 변수 `text = "Hello, Python!"`에서 슬라이싱을 사용하여 `"Hello"`, `"Python"`, `"!nohtyP ,olleH"`(역순)를 각각 추출하여 출력하시오.
+
+---
+
+**문제 23.** 다음 요구사항에 맞는 프로그램을 작성하시오.
+
+> 자신의 이름을 변수에 저장한 뒤, `upper()`, `lower()`, `len()`을 사용하여 아래와 같은 형식으로 출력하시오.
+
+출력 예시 (이름이 "Hong Gildong"인 경우):
+
+```
+원본: Hong Gildong
+대문자: HONG GILDONG
+소문자: hong gildong
+글자 수: 13
+```
+
+---
+
+**문제 24.** 다음 요구사항에 맞는 프로그램을 작성하시오.
+
+> 변수 `price = 1234567`과 `rate = 3.14159`에 대해 f-string 포매팅을 사용하여 아래와 같이 출력하시오.
+
+출력:
+
+```
+가격: 1,234,567원
+비율: 3.14%
+```
+
+---
+
+### 🟡 중급
+
+**문제 25.** 다음 요구사항에 맞는 프로그램을 작성하시오.
+
+> 사용자로부터 문장 하나를 `input()`으로 입력받아 다음 정보를 분석하여 출력하시오.
+>
+> - 전체 글자 수, 공백 제외 글자 수, 단어 수
+> - 대문자 변환, 소문자 변환
+> - 첫 번째 단어와 마지막 단어
+
+출력 예시 (입력: "Python is very fun"):
+
+```
+=== 텍스트 분석 ===
+전체 글자 수: 18
+공백 제외 글자 수: 15
+단어 수: 4
+대문자: PYTHON IS VERY FUN
+소문자: python is very fun
+첫 번째 단어: Python
+마지막 단어: fun
+```
+
+---
+
+### 🔴 고급
+
+**문제 26.** 다음 요구사항에 맞는 프로그램을 작성하시오.
+
+> 사용자로부터 전화번호를 `input()`으로 입력받아(예: `01012345678`) 아래 세 가지 형식으로 변환하여 출력하시오.
+> 입력된 번호에 하이픈이 포함되어 있으면 먼저 제거한 뒤 처리하시오.
+> (힌트: `replace()`, 슬라이싱, `join()` 활용)
+
+출력 예시:
+
+```
+전화번호를 입력하세요: 010-1234-5678
+형식 1: 010-1234-5678
+형식 2: (010) 1234-5678
+형식 3: +82-10-1234-5678
+```
+
+---
+
+---
+
+# 🔑 정답 및 해설
+
+---
+
+## 📝 객관식 정답
+
+---
+
+### 🟢 초급
+
+**문제 1. 정답: ① H**
+
+문자열 인덱스는 0부터 시작합니다. `text[0]`은 `"Hello"`의 첫 번째 문자인 `H`를 반환합니다.
+
+---
+
+**문제 2. 정답: ② n**
+
+음수 인덱스는 뒤에서부터 센다. `text[-1]`은 `"Python"`의 마지막 문자인 `n`을 반환합니다. `-1`은 마지막, `-2`는 뒤에서 두 번째입니다.
+
+---
+
+**문제 3. 정답: ③ 삼중 따옴표 `"""`**
+
+삼중 따옴표(`"""` 또는 `'''`)를 사용하면 여러 줄에 걸친 문자열을 만들 수 있습니다. 일반 따옴표는 한 줄 문자열에만 사용합니다.
+
+---
+
+**문제 4. 정답: ② `\n`**
+
+`\n`은 줄바꿈(newline)을 나타냅니다. `\t`는 탭, `\\`는 백슬래시, `\"`는 큰따옴표를 나타내는 이스케이프 문자입니다.
+
+---
+
+**문제 5. 정답: ② 6**
+
+`len()` 함수는 문자열의 길이(문자 수)를 반환합니다. `"Python"`은 P, y, t, h, o, n 6개의 문자로 구성되어 있으므로 결과는 6입니다.
+
+---
+
+**문제 6. 정답: ③ HELLO**
+
+`upper()` 메서드는 문자열의 모든 문자를 대문자로 변환한 **새로운 문자열**을 반환합니다. 원본 `text`는 변하지 않습니다.
+
+---
+
+**문제 7. 정답: ③ `text[0] = "h"`**
+
+문자열은 불변(immutable)이므로 인덱스를 통해 특정 위치의 문자를 직접 변경할 수 없습니다. `TypeError`가 발생합니다. ① 변수에 새 문자열 할당은 가능, ② ④ 메서드는 새 문자열을 반환하므로 문제없습니다.
+
+---
+
+### 🟡 중급
+
+**문제 8. 정답: ② World**
+
+`"Hello, World!"`에서 인덱스 7은 `W`, 인덱스 11은 `d`입니다. `text[7:12]`는 인덱스 7~11의 문자, 즉 `World`를 반환합니다. 슬라이싱에서 끝 인덱스는 포함되지 않습니다.
+
+---
+
+**문제 9. 정답: ④ `[Python]`**
+
+`strip()` 메서드는 문자열 양쪽의 공백을 제거합니다. `"   Python   "`의 양쪽 공백이 제거되어 `"Python"`이 되고, f-string으로 대괄호 사이에 출력됩니다.
+
+---
+
+**문제 10. 정답: ② banana**
+
+`split(',')`는 쉼표를 기준으로 문자열을 분리하여 리스트 `['apple', 'banana', 'cherry']`를 만듭니다. `result[1]`은 두 번째 요소인 `banana`입니다.
+
+---
+
+**문제 11. 정답: ② 7**
+
+`find()` 메서드는 찾는 문자열이 **처음 등장하는 위치(인덱스)**를 반환합니다. `"Python is fun"`에서 `"is"`는 인덱스 7에서 시작합니다. 못 찾으면 `-1`을 반환합니다.
+
+---
+
+**문제 12. 정답: ② Hello World**
+
+`join()` 메서드는 리스트의 각 요소를 지정한 구분자로 연결합니다. `' '.join(['Hello', 'World'])`는 공백으로 연결하여 `"Hello World"`를 만듭니다.
+
+---
+
+### 🔴 고급
+
+**문제 13. 정답: ③ Pormig**
+
+`text[::2]`는 인덱스 0부터 2칸씩 건너뛰며 문자를 추출합니다. `"Programming"`에서 인덱스 0(P), 2(o), 4(r), 6(m), 8(i), 10(g)을 추출하면 `"Pormig"`입니다.
+
+---
+
+**문제 14. 정답: ③ World!**
+
+단계별 실행: ① `text.replace("Python", "World")` → `"Hello, World!"` ② `.split(",")` → `['Hello', ' World!']` ③ `result[1]` → `' World!'` ④ `.strip()` → `'World!'`. 메서드 체이닝으로 순차적으로 처리됩니다.
+
+---
+
+**문제 15. 정답: ② `     Alice: 95.7    점`**
+
+`name.title()`은 `"Alice"` (5자), `:>10`은 10칸에서 오른쪽 정렬이므로 앞에 5칸 공백이 붙습니다. `score`는 `:<8.1f`로 소수점 1자리(95.7)를 8칸에서 왼쪽 정렬하므로 뒤에 공백이 붙습니다.
+
+---
+
+## 📝 주관식 정답
+
+---
+
+### 🟢 초급
+
+**문제 16. 모범답안:**
+
+```python
+text = "Python"
+
+# 첫 번째 문자
+print(text[0])   # P (양수 인덱스)
+print(text[-6])  # P (음수 인덱스)
+
+# 마지막 문자
+print(text[5])   # n (양수 인덱스)
+print(text[-1])  # n (음수 인덱스)
+```
+
+양수 인덱스는 0부터 시작(앞에서부터), 음수 인덱스는 -1부터 시작(뒤에서부터)합니다.
+
+---
+
+**문제 17. 모범답안:**
+
+**슬라이싱 문법 `[시작:끝:간격]`:**
+
+- **시작**: 추출을 시작할 인덱스 (생략 시 처음부터)
+- **끝**: 추출을 끝낼 인덱스 (해당 인덱스 직전까지, 생략 시 끝까지)
+- **간격**: 몇 칸씩 건너뛸지 (생략 시 1)
+
+```python
+text = "abcdefg"
+print(text[::2])  # "aceg" → 그 중 "ace"만 필요하면:
+print(text[0:5:2])  # "ace"
+```
+
+`text[0:5:2]`는 인덱스 0부터 4까지 2칸씩 건너뛰어 인덱스 0(a), 2(c), 4(e)를 추출합니다.
+
+---
+
+**문제 18. 모범답안:**
+
+```
+Python
+Programming
+gnimmargorP nohtyP
+```
+
+`text[:6]`은 처음부터 인덱스 5까지 → `"Python"`. `text[7:]`은 인덱스 7부터 끝까지 → `"Programming"`. `text[::-1]`은 문자열을 역순으로 → `"gnimmargorP nohtyP"`.
+
+---
+
+### 🟡 중급
+
+**문제 19. 모범답안:**
+
+**메서드 설명:**
+
+- `find(문자열)`: 해당 문자열이 **처음 등장하는 위치(인덱스)**를 반환합니다. 없으면 -1을 반환합니다.
+- `count(문자열)`: 해당 문자열이 **등장하는 횟수**를 반환합니다.
+- `replace(이전, 새것, 횟수)`: 이전 문자열을 새 문자열로 **치환**합니다. 횟수를 지정하면 그 횟수만큼만 치환합니다.
+
+**실행 결과:**
+
+```
+0
+2
+Hi Python Hello World
+```
+
+`find("Hello")`는 첫 번째 "Hello"의 시작 위치인 0. `count("Hello")`는 "Hello"가 2번 등장. `replace("Hello", "Hi", 1)`은 첫 번째 "Hello"만 "Hi"로 치환.
+
+---
+
+**문제 20. 모범답안:**
+
+**오류 원인:** `age`는 정수(int) 타입이므로 문자열과 `+` 연산자로 직접 연결할 수 없습니다. `TypeError`가 발생합니다.
+
+**수정 코드 (f-string 사용):**
+
+```python
+name = "김영희"
+age = 22
+message = f"이름: {name}, 나이: {age}세"
+print(message)
+```
+
+f-string을 사용하면 변수의 타입에 관계없이 자동으로 문자열에 삽입됩니다. 별도의 타입 변환이 필요 없습니다.
+
+---
+
+### 🔴 고급
+
+**문제 21. 모범답안:**
+
+실행 결과:
+
+```
+ID: student, Domain: university.ac.kr, TLD: kr
+```
+
+**단계별 설명:**
+
+1. `email.lower()` → `"student@university.ac.kr"` (모든 문자를 소문자로 변환)
+2. `.split('@')` → `['student', 'university.ac.kr']` (`@` 기준으로 분리)
+3. `parts[0]` → `"student"` (아이디 부분)
+4. `parts[1]` → `"university.ac.kr"` (도메인 부분)
+5. `domain.split('.')` → `['university', 'ac', 'kr']` (점 기준으로 분리)
+6. `[-1]` → `"kr"` (리스트의 마지막 요소 = 최상위 도메인)
+
+---
+
+## 💻 실습형 정답
+
+---
+
+### 🟢 초급
+
+**문제 22. 모범답안:**
+
+```python
+text = "Hello, Python!"
+
+print(text[:5])     # Hello
+print(text[7:13])   # Python
+print(text[::-1])   # !nohtyP ,olleH
+```
+
+핵심: `[:5]`는 인덱스 0~4, `[7:13]`은 인덱스 7~12, `[::-1]`은 전체를 역순으로 추출합니다.
+
+---
+
+**문제 23. 모범답안:**
+
+```python
+name = "Hong Gildong"
+
+print(f"원본: {name}")
+print(f"대문자: {name.upper()}")
+print(f"소문자: {name.lower()}")
+print(f"글자 수: {len(name)}")
+```
+
+핵심: `upper()`는 모든 문자를 대문자로, `lower()`는 소문자로 변환합니다. `len()`은 공백을 포함한 전체 문자 수를 반환합니다.
+
+---
+
+**문제 24. 모범답안:**
+
+```python
+price = 1234567
+rate = 3.14159
+
+print(f"가격: {price:,}원")
+print(f"비율: {rate:.2f}%")
+```
+
+핵심: `:,`는 천 단위 구분자를 표시하고, `:.2f`는 소수점 둘째 자리까지 표시합니다.
+
+---
+
+### 🟡 중급
+
+**문제 25. 모범답안:**
+
+```python
+text = input("문장을 입력하세요: ")
+
+# 분석
+total_length = len(text)
+no_space_length = len(text.replace(' ', ''))
+words = text.split()
+word_count = len(words)
+
+# 출력
+print("\n=== 텍스트 분석 ===")
+print(f"전체 글자 수: {total_length}")
+print(f"공백 제외 글자 수: {no_space_length}")
+print(f"단어 수: {word_count}")
+print(f"대문자: {text.upper()}")
+print(f"소문자: {text.lower()}")
+print(f"첫 번째 단어: {words[0]}")
+print(f"마지막 단어: {words[-1]}")
+```
+
+핵심 포인트:
+
+- `replace(' ', '')`로 공백을 제거한 후 길이를 측정합니다.
+- `split()`은 공백 기준으로 분리하여 리스트를 만듭니다.
+- `words[0]`은 첫 번째, `words[-1]`은 마지막 단어입니다.
+
+---
+
+### 🔴 고급
+
+**문제 26. 모범답안:**
+
+```python
+phone_input = input("전화번호를 입력하세요: ")
+
+# 하이픈 제거하여 숫자만 추출
+phone = phone_input.replace("-", "")
+
+# 슬라이싱으로 각 부분 분리
+part1 = phone[:3]    # 010
+part2 = phone[3:7]   # 1234
+part3 = phone[7:]    # 5678
+
+# 세 가지 형식으로 출력
+print(f"형식 1: {part1}-{part2}-{part3}")
+print(f"형식 2: ({part1}) {part2}-{part3}")
+print(f"형식 3: +82-{part1[1:]}-{part2}-{part3}")
+```
+
+핵심 포인트:
+
+- `replace("-", "")`로 입력에 포함된 하이픈을 먼저 제거합니다.
+- 슬라이싱으로 앞 3자리, 중간 4자리, 뒤 4자리를 분리합니다.
+- 국제 전화 형식에서는 `part1[1:]`로 `010`에서 앞의 `0`을 제거하여 `10`을 사용합니다.
+- f-string으로 다양한 형식을 자유롭게 조합합니다.
+
+---
+
+
+수고했습니다.   
+조정현 교수([peterchokr@gmail.com](mailto:peterchokr@gmail.com)) 영남이공대학교
+
+이 연습문제는 Claude 및 Gemini와 협업으로 제작되었습니다.

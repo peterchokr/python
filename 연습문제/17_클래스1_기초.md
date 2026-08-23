@@ -1,0 +1,1004 @@
+# 17장 클래스 1 (기초) — 연습문제
+
+---
+
+## 📝 객관식 문제
+
+---
+
+### 🟢 초급
+
+**문제 1.** 파이썬에서 클래스를 정의하는 키워드는?
+
+① `def`
+② `class`
+③ `function`
+④ `object`
+
+---
+
+**문제 2.** 클래스와 객체의 관계로 올바른 것은?
+
+① 클래스는 객체의 복사본이다
+② 클래스는 설계도이고, 객체는 설계도로 만든 실제 제품이다
+③ 객체는 클래스의 부모이다
+④ 클래스와 객체는 같은 것이다
+
+---
+
+**문제 3.** 객체가 생성될 때 자동으로 호출되는 메서드는?
+
+① `__new__`
+② `__start__`
+③ `__init__`
+④ `__create__`
+
+---
+
+**문제 4.** 다음 코드의 실행 결과는?
+
+```python
+class Dog:
+    def __init__(self, name):
+        self.name = name
+
+dog = Dog("멍멍이")
+print(dog.name)
+```
+
+① `Dog`
+② `멍멍이`
+③ `name`
+④ 오류 발생
+
+---
+
+**문제 5.** `self`의 역할로 올바른 것은?
+
+① 클래스 자체를 가리킨다
+② **객체 자신**을 가리킨다
+③ 메서드 이름을 저장한다
+④ 변수의 타입을 나타낸다
+
+---
+
+**문제 6.** 다음 코드의 실행 결과는?
+
+```python
+class Cat:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+cat = Cat("나비", 2)
+print(f"{cat.name}는 {cat.age}살")
+```
+
+① `Cat는 2살`
+② `나비는 2살`
+③ `name는 age살`
+④ 오류 발생
+
+---
+
+**문제 7.** 클래스의 구성 요소 2가지는?
+
+① 함수와 변수
+② **속성(데이터)과 메서드(기능)**
+③ 모듈과 패키지
+④ 리스트와 딕셔너리
+
+---
+
+### 🟡 중급
+
+**문제 8.** 다음 코드의 실행 결과는?
+
+```python
+class Counter:
+    def __init__(self):
+        self.count = 0
+  
+    def increase(self):
+        self.count += 1
+
+c = Counter()
+c.increase()
+c.increase()
+c.increase()
+print(c.count)
+```
+
+① `0`
+② `1`
+③ `3`
+④ 오류 발생
+
+---
+
+**문제 9.** 다음 코드에서 `__init__`의 매개변수 `self`를 제외한 나머지 매개변수의 개수는?
+
+```python
+class Student:
+    def __init__(self, name, student_id, grade):
+        self.name = name
+        self.student_id = student_id
+        self.grade = grade
+```
+
+① 1개
+② 2개
+③ 3개
+④ 4개
+
+---
+
+**문제 10.** 클래스 변수와 인스턴스 변수의 차이로 올바른 것은?
+
+① 클래스 변수는 객체마다 다른 값이다
+② 인스턴스 변수는 모든 객체가 공유한다
+③ **클래스 변수는 모든 객체가 공유**하고, 인스턴스 변수는 객체마다 다르다
+④ 차이가 없다
+
+---
+
+**문제 11.** 다음 코드에서 클래스 변수는?
+
+```python
+class Dog:
+    species = "포유류"
+  
+    def __init__(self, name):
+        self.name = name
+```
+
+① `name`
+② `self`
+③ `species`
+④ `Dog`
+
+---
+
+**문제 12.** 다음 코드의 실행 결과는?
+
+```python
+class Player:
+    count = 0
+  
+    def __init__(self, name):
+        self.name = name
+        Player.count += 1
+
+p1 = Player("용사")
+p2 = Player("마법사")
+p3 = Player("궁수")
+print(Player.count)
+```
+
+① `0`
+② `1`
+③ `3`
+④ 오류 발생
+
+---
+
+### 🔴 고급
+
+**문제 13.** 다음 코드의 실행 결과는?
+
+```python
+class Box:
+    def __init__(self, items=None):
+        if items is None:
+            self.items = []
+        else:
+            self.items = items
+  
+    def add(self, item):
+        self.items.append(item)
+  
+    def size(self):
+        return len(self.items)
+
+box1 = Box()
+box1.add("사과")
+box1.add("바나나")
+
+box2 = Box()
+box2.add("오렌지")
+
+print(box1.size(), box2.size())
+```
+
+① `2 2`
+② `3 3`
+③ `2 1`
+④ `3 1`
+
+---
+
+**문제 14.** 다음 코드의 실행 결과는?
+
+```python
+class BankAccount:
+    def __init__(self, owner, balance=0):
+        self.owner = owner
+        self.balance = balance
+  
+    def deposit(self, amount):
+        self.balance += amount
+        return self.balance
+  
+    def withdraw(self, amount):
+        if amount > self.balance:
+            return -1
+        self.balance -= amount
+        return self.balance
+
+acc = BankAccount("홍길동", 10000)
+acc.deposit(5000)
+result = acc.withdraw(20000)
+print(result)
+```
+
+① `10000`
+② `15000`
+③ `-1`
+④ `-5000`
+
+---
+
+**문제 15.** 다음 코드의 실행 결과는?
+
+```python
+class Student:
+    total = 0
+  
+    def __init__(self, name):
+        self.name = name
+        Student.total += 1
+  
+    def get_info(self):
+        return f"{self.name} (전체: {Student.total}명)"
+
+s1 = Student("김철수")
+s2 = Student("박영희")
+print(s1.get_info())
+```
+
+① `김철수 (전체: 1명)`
+② `김철수 (전체: 2명)`
+③ `박영희 (전체: 2명)`
+④ 오류 발생
+
+---
+
+## 📝 주관식 문제
+
+---
+
+### 🟢 초급
+
+**문제 16.** 클래스, 객체, 속성, 메서드의 관계를 실생활 예시(자동차)를 들어 설명하시오.
+
+---
+
+**문제 17.** 다음 코드의 실행 결과를 쓰시오.
+
+```python
+class Fruit:
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+  
+    def info(self):
+        print(f"{self.name}: {self.price}원")
+
+apple = Fruit("사과", 3000)
+banana = Fruit("바나나", 2000)
+apple.info()
+banana.info()
+print(apple.price + banana.price)
+```
+
+---
+
+**문제 18.** `self`가 필요한 이유를 설명하시오. 같은 클래스에서 여러 객체를 만들었을 때 `self`가 어떻게 동작하는지 서술하시오.
+
+---
+
+### 🟡 중급
+
+**문제 19.** 다음 코드의 실행 결과를 쓰고, **클래스 변수**와 **인스턴스 변수**가 각각 어떤 것인지 설명하시오.
+
+```python
+class Pet:
+    count = 0
+  
+    def __init__(self, name, species):
+        self.name = name
+        self.species = species
+        Pet.count += 1
+
+p1 = Pet("멍멍이", "개")
+p2 = Pet("나비", "고양이")
+p3 = Pet("짹짹이", "새")
+
+print(f"이름: {p1.name}, 종류: {p1.species}")
+print(f"이름: {p2.name}, 종류: {p2.species}")
+print(f"총 {Pet.count}마리")
+```
+
+---
+
+**문제 20.** 다음 코드의 실행 결과를 쓰고, 메서드가 `self`의 속성을 **변경**하는 과정을 설명하시오.
+
+```python
+class Character:
+    def __init__(self, name, hp):
+        self.name = name
+        self.hp = hp
+  
+    def take_damage(self, damage):
+        self.hp -= damage
+        if self.hp < 0:
+            self.hp = 0
+  
+    def heal(self, amount):
+        self.hp += amount
+        if self.hp > 100:
+            self.hp = 100
+
+hero = Character("용사", 100)
+hero.take_damage(40)
+print(f"{hero.name}: HP {hero.hp}")
+hero.heal(30)
+print(f"{hero.name}: HP {hero.hp}")
+hero.take_damage(200)
+print(f"{hero.name}: HP {hero.hp}")
+```
+
+---
+
+### 🔴 고급
+
+**문제 21.** 다음 코드의 실행 결과를 쓰고, `get_average()`에서 `self.scores`를 사용하여 평균을 계산하는 과정을 설명하시오.
+
+```python
+class ScoreBoard:
+    def __init__(self, subject):
+        self.subject = subject
+        self.scores = []
+  
+    def add_score(self, score):
+        if 0 <= score <= 100:
+            self.scores.append(score)
+  
+    def get_average(self):
+        if len(self.scores) == 0:
+            return 0
+        return sum(self.scores) / len(self.scores)
+  
+    def get_max(self):
+        if len(self.scores) == 0:
+            return 0
+        return max(self.scores)
+
+board = ScoreBoard("수학")
+board.add_score(85)
+board.add_score(90)
+board.add_score(78)
+board.add_score(150)
+
+print(f"과목: {board.subject}")
+print(f"점수: {board.scores}")
+print(f"평균: {board.get_average():.1f}")
+print(f"최고: {board.get_max()}")
+```
+
+---
+
+## 💻 실습형 문제
+
+---
+
+### 🟢 초급
+
+**문제 22.** 다음 요구사항에 맞는 `Book` 클래스를 작성하시오.
+
+> - 속성: `title`(제목), `author`(저자), `pages`(페이지 수)
+> - 메서드: `info()` — 책 정보를 출력
+> - 메서드: `is_long()` — 300페이지 이상이면 `True` 반환
+
+출력 예시:
+
+```python
+book1 = Book("파이썬 입문", "홍길동", 250)
+book2 = Book("데이터 분석", "김철수", 450)
+book1.info()   # 파이썬 입문 (홍길동) - 250페이지
+book2.info()   # 데이터 분석 (김철수) - 450페이지
+print(book1.is_long())  # False
+print(book2.is_long())  # True
+```
+
+---
+
+**문제 23.** 다음 요구사항에 맞는 `Counter` 클래스를 작성하시오.
+
+> - 속성: `count` (초기값 0)
+> - 메서드: `increase()` — 1 증가
+> - 메서드: `decrease()` — 1 감소 (0 이하로 내려가지 않음)
+> - 메서드: `reset()` — 0으로 초기화
+> - 메서드: `get_count()` — 현재 값 반환
+
+출력 예시:
+
+```
+c = Counter()
+c.increase()
+c.increase()
+c.increase()
+print(c.get_count())  # 3
+c.decrease()
+print(c.get_count())  # 2
+c.reset()
+print(c.get_count())  # 0
+```
+
+---
+
+### 🟡 중급
+
+**문제 24.** 다음 요구사항에 맞는 `ShoppingCart` 클래스를 작성하시오.
+
+> - `add_item(name, price, quantity)`: 상품을 리스트에 딕셔너리로 추가
+> - `remove_item(name)`: 이름으로 상품 삭제
+> - `get_total()`: 총 금액 계산 (가격 × 수량의 합)
+> - `show_cart()`: 장바구니 내용 출력
+
+출력 예시:
+
+```
+=== 장바구니 ===
+1. 사과 - 3,000원 x 2개 = 6,000원
+2. 우유 - 2,500원 x 1개 = 2,500원
+3. 빵 - 1,500원 x 3개 = 4,500원
+---
+총 금액: 13,000원
+```
+
+---
+
+**문제 25.** 다음 요구사항에 맞는 `StudentManager` 클래스를 작성하시오.
+
+> 학생 여러 명을 관리하는 클래스입니다.
+>
+> - `add_student(name, score)`: 학생 추가 (딕셔너리로 리스트에 저장)
+> - `get_average()`: 전체 평균 점수
+> - `get_top_student()`: 최고 점수 학생 이름 반환
+> - `get_pass_count()`: 60점 이상 합격자 수
+> - `show_all()`: 전체 학생 성적표 출력
+> - 클래스 변수로 `total_students` 관리
+
+출력 예시:
+
+```
+=== 성적표 ===
+김철수: 85점 ✓
+박영희: 55점 ✗
+이민수: 92점 ✓
+최지우: 78점 ✓
+---
+평균: 77.5점
+최고: 이민수 (92점)
+합격: 3명 / 불합격: 1명
+총 학생 수: 4명
+```
+
+---
+
+### 🔴 고급
+
+**문제 26.** 다음 요구사항에 맞는 `TodoList` 클래스를 작성하시오.
+
+> 할 일 관리 프로그램입니다.
+>
+> - `add_task(title, priority)`: 할 일 추가 (priority: "높음"/"보통"/"낮음")
+> - `complete_task(title)`: 완료 처리 (상태를 "완료"로 변경)
+> - `remove_task(title)`: 삭제
+> - `show_tasks()`: 전체 목록 출력 (우선순위별 이모지: 높음🔴, 보통🟡, 낮음🟢)
+> - `get_stats()`: 통계 반환 (전체, 완료, 미완료 개수)
+> - 각 할 일은 딕셔너리로 저장: `{"title": ..., "priority": ..., "done": False}`
+
+출력 예시:
+
+```
+=== 할 일 목록 ===
+🔴 [미완료] 과제 제출
+🟡 [미완료] 장보기
+🟢 [완료 ✓] 운동하기
+🔴 [미완료] 시험 공부
+---
+전체: 4개 | 완료: 1개 | 미완료: 3개
+```
+
+---
+
+---
+
+# 🔑 정답 및 해설
+
+---
+
+## 📝 객관식 정답
+
+---
+
+### 🟢 초급
+
+**문제 1. 정답: ② `class`**
+
+파이썬에서는 `class` 키워드로 클래스를 정의합니다. `def`는 함수 정의에 사용합니다.
+
+---
+
+**문제 2. 정답: ② 클래스는 설계도이고, 객체는 설계도로 만든 실제 제품이다**
+
+클래스는 붕어빵 틀(설계도), 객체는 붕어빵(실제 제품)입니다. 하나의 클래스로 여러 객체를 만들 수 있습니다.
+
+---
+
+**문제 3. 정답: ③ `__init__`**
+
+`__init__`은 생성자(constructor)로, 객체가 생성될 때 자동으로 호출되어 객체를 초기화합니다.
+
+---
+
+**문제 4. 정답: ② `멍멍이`**
+
+`Dog("멍멍이")`로 객체를 생성하면 `__init__`이 호출되어 `self.name = "멍멍이"`가 됩니다. `dog.name`은 `"멍멍이"`입니다.
+
+---
+
+**문제 5. 정답: ② 객체 자신을 가리킨다**
+
+`self`는 메서드를 호출한 객체 자신을 가리키는 참조입니다. 각 객체마다 `self`가 해당 객체를 가리킵니다.
+
+---
+
+**문제 6. 정답: ② `나비는 2살`**
+
+`Cat("나비", 2)`로 생성하면 `self.name = "나비"`, `self.age = 2`가 됩니다. f-string으로 `"나비는 2살"`이 출력됩니다.
+
+---
+
+**문제 7. 정답: ② 속성(데이터)과 메서드(기능)**
+
+클래스는 속성(Attribute, 데이터/특징)과 메서드(Method, 동작/기능) 두 가지로 구성됩니다.
+
+---
+
+### 🟡 중급
+
+**문제 8. 정답: ③ `3`**
+
+`Counter()` 생성 시 `count = 0`. `increase()`를 3번 호출하면 `count`가 0→1→2→3이 됩니다.
+
+---
+
+**문제 9. 정답: ③ 3개**
+
+`__init__(self, name, student_id, grade)`에서 `self`를 제외하면 `name`, `student_id`, `grade` 총 3개입니다.
+
+---
+
+**문제 10. 정답: ③ 클래스 변수는 모든 객체가 공유하고, 인스턴스 변수는 객체마다 다르다**
+
+클래스 변수(`ClassName.var`)는 모든 객체가 공유하고, 인스턴스 변수(`self.var`)는 각 객체가 독립적으로 가집니다.
+
+---
+
+**문제 11. 정답: ③ `species`**
+
+`species = "포유류"`는 클래스 본문에 직접 정의되어 모든 객체가 공유하는 **클래스 변수**입니다. `self.name`은 인스턴스 변수입니다.
+
+---
+
+**문제 12. 정답: ③ `3`**
+
+`Player.count`는 클래스 변수로 모든 객체가 공유합니다. 객체 3개를 생성할 때마다 `count`가 1씩 증가하여 최종 `3`이 됩니다.
+
+---
+
+### 🔴 고급
+
+**문제 13. 정답: ③ `2 1`**
+
+`box1`과 `box2`는 각각 독립적인 `items` 리스트를 갖습니다. `__init__`에서 `items is None`일 때 새 리스트 `[]`를 만들기 때문입니다. `box1`에 2개, `box2`에 1개가 추가되어 `2 1`이 출력됩니다.
+
+---
+
+**문제 14. 정답: ③ `-1`**
+
+`deposit(5000)` 후 잔액 = 15,000원. `withdraw(20000)`은 잔액(15,000)보다 크므로 조건 `amount > self.balance`가 `True`가 되어 `-1`을 반환합니다.
+
+---
+
+**문제 15. 정답: ② `김철수 (전체: 2명)`**
+
+`s1`과 `s2`를 생성한 후 `Student.total = 2`입니다. `s1.get_info()`에서 `self.name`은 `"김철수"`이고, `Student.total`은 클래스 변수로 `2`이므로 `"김철수 (전체: 2명)"`이 출력됩니다.
+
+---
+
+## 📝 주관식 정답
+
+---
+
+### 🟢 초급
+
+**문제 16. 모범답안:**
+
+자동차를 예로 들면:
+
+- **클래스(Class)** = 자동차 설계도. 자동차의 구조와 기능을 정의합니다.
+- **객체(Object)** = 설계도로 만든 실제 자동차. `내 소나타`, `네 아반떼`처럼 각각 독립적인 자동차입니다.
+- **속성(Attribute)** = 자동차의 데이터/특징. 색상, 브랜드, 속도, 연료량 등이 해당합니다.
+- **메서드(Method)** = 자동차의 동작/기능. 시동 켜기, 가속하기, 브레이크, 주차하기 등이 해당합니다.
+
+하나의 클래스(설계도)로 여러 객체(자동차)를 만들 수 있으며, 각 객체는 독립적인 속성을 가집니다.
+
+---
+
+**문제 17. 모범답안:**
+
+```
+사과: 3000원
+바나나: 2000원
+5000
+```
+
+- `apple = Fruit("사과", 3000)` → `name="사과"`, `price=3000`
+- `banana = Fruit("바나나", 2000)` → `name="바나나"`, `price=2000`
+- `apple.info()` → `"사과: 3000원"` 출력
+- `banana.info()` → `"바나나: 2000원"` 출력
+- `apple.price + banana.price` → `3000 + 2000 = 5000`
+
+---
+
+**문제 18. 모범답안:**
+
+`self`는 **객체 자신을 가리키는 참조**로, 같은 클래스에서 여러 객체를 만들었을 때 각 객체를 구분하기 위해 필요합니다.
+
+예를 들어 `Dog` 클래스에서 `dog1 = Dog("멍멍이")`와 `dog2 = Dog("바둑이")`를 만들면:
+
+- `dog1.bark()` 호출 시 `self`는 `dog1`을 가리키므로 `self.name`은 `"멍멍이"`
+- `dog2.bark()` 호출 시 `self`는 `dog2`를 가리키므로 `self.name`은 `"바둑이"`
+
+`self`가 없으면 메서드 안에서 어느 객체의 속성에 접근해야 하는지 알 수 없습니다.
+
+---
+
+### 🟡 중급
+
+**문제 19. 모범답안:**
+
+**실행 결과:**
+
+```
+이름: 멍멍이, 종류: 개
+이름: 나비, 종류: 고양이
+총 3마리
+```
+
+- **클래스 변수**: `count = 0` — 클래스 본문에 직접 정의. 모든 `Pet` 객체가 공유합니다. 객체가 생성될 때마다 `Pet.count += 1`로 증가하여 최종 3이 됩니다.
+- **인스턴스 변수**: `self.name`, `self.species` — `__init__` 안에서 `self.`로 정의. 각 객체가 독립적인 값을 가집니다.
+
+---
+
+**문제 20. 모범답안:**
+
+**실행 결과:**
+
+```
+용사: HP 60
+용사: HP 90
+용사: HP 0
+```
+
+- `hero = Character("용사", 100)` → HP 100
+- `take_damage(40)` → `self.hp = 100 - 40 = 60` (self는 hero를 가리킴)
+- `heal(30)` → `self.hp = 60 + 30 = 90` (100 이하이므로 제한 없음)
+- `take_damage(200)` → `self.hp = 90 - 200 = -110` → 조건문에 의해 `self.hp = 0`
+
+메서드는 `self`를 통해 해당 객체의 속성에 접근하고 값을 직접 변경합니다.
+
+---
+
+### 🔴 고급
+
+**문제 21. 모범답안:**
+
+**실행 결과:**
+
+```
+과목: 수학
+점수: [85, 90, 78]
+평균: 84.3
+최고: 90
+```
+
+- `add_score(150)` → `0 <= 150 <= 100`이 `False`이므로 추가되지 않음
+- 유효한 점수: `[85, 90, 78]` (3개)
+- `get_average()` → `len(self.scores) = 3`이므로 `sum([85, 90, 78]) / 3 = 253 / 3 = 84.333...` → `84.3`
+- `get_max()` → `max([85, 90, 78]) = 90`
+
+`get_average()`는 먼저 리스트가 비어있는지 확인(0 반환 방지)한 후, `sum()`으로 합계를 구하고 `len()`으로 나누어 평균을 계산합니다.
+
+---
+
+## 💻 실습형 정답
+
+---
+
+### 🟢 초급
+
+**문제 22. 모범답안:**
+
+```python
+class Book:
+    def __init__(self, title, author, pages):
+        self.title = title
+        self.author = author
+        self.pages = pages
+  
+    def info(self):
+        print(f"{self.title} ({self.author}) - {self.pages}페이지")
+  
+    def is_long(self):
+        return self.pages >= 300
+
+# 테스트
+book1 = Book("파이썬 입문", "홍길동", 250)
+book2 = Book("데이터 분석", "김철수", 450)
+book1.info()
+book2.info()
+print(book1.is_long())
+print(book2.is_long())
+```
+
+핵심: `__init__`으로 속성을 초기화하고, 메서드에서 `self.속성`으로 접근합니다. `is_long()`은 비교 결과를 `bool`로 반환합니다.
+
+---
+
+**문제 23. 모범답안:**
+
+```python
+class Counter:
+    def __init__(self):
+        self.count = 0
+  
+    def increase(self):
+        self.count += 1
+  
+    def decrease(self):
+        if self.count > 0:
+            self.count -= 1
+  
+    def reset(self):
+        self.count = 0
+  
+    def get_count(self):
+        return self.count
+
+# 테스트
+c = Counter()
+c.increase()
+c.increase()
+c.increase()
+print(c.get_count())  # 3
+c.decrease()
+print(c.get_count())  # 2
+c.reset()
+print(c.get_count())  # 0
+```
+
+핵심: `decrease()`에서 `self.count > 0` 조건으로 음수를 방지합니다.
+
+---
+
+### 🟡 중급
+
+**문제 24. 모범답안:**
+
+```python
+class ShoppingCart:
+    def __init__(self):
+        self.items = []
+  
+    def add_item(self, name, price, quantity):
+        self.items.append({
+            "name": name,
+            "price": price,
+            "quantity": quantity
+        })
+        print(f"✓ {name} 추가됨")
+  
+    def remove_item(self, name):
+        for i, item in enumerate(self.items):
+            if item["name"] == name:
+                self.items.pop(i)
+                print(f"✓ {name} 삭제됨")
+                return
+        print(f"❌ {name}을(를) 찾을 수 없습니다")
+  
+    def get_total(self):
+        total = 0
+        for item in self.items:
+            total += item["price"] * item["quantity"]
+        return total
+  
+    def show_cart(self):
+        print("\n=== 장바구니 ===")
+        for i, item in enumerate(self.items, 1):
+            subtotal = item["price"] * item["quantity"]
+            print(f"{i}. {item['name']} - {item['price']:,}원 x {item['quantity']}개 = {subtotal:,}원")
+        print("---")
+        print(f"총 금액: {self.get_total():,}원")
+
+# 테스트
+cart = ShoppingCart()
+cart.add_item("사과", 3000, 2)
+cart.add_item("우유", 2500, 1)
+cart.add_item("빵", 1500, 3)
+cart.show_cart()
+```
+
+핵심: 각 상품을 딕셔너리로 리스트에 저장합니다. `get_total()`에서 가격 × 수량의 합계를 구합니다.
+
+---
+
+**문제 25. 모범답안:**
+
+```python
+class StudentManager:
+    total_students = 0
+  
+    def __init__(self):
+        self.students = []
+  
+    def add_student(self, name, score):
+        self.students.append({"name": name, "score": score})
+        StudentManager.total_students += 1
+  
+    def get_average(self):
+        if len(self.students) == 0:
+            return 0
+        total = sum(s["score"] for s in self.students)
+        return total / len(self.students)
+  
+    def get_top_student(self):
+        if len(self.students) == 0:
+            return None
+        top = self.students[0]
+        for s in self.students:
+            if s["score"] > top["score"]:
+                top = s
+        return top
+  
+    def get_pass_count(self):
+        count = 0
+        for s in self.students:
+            if s["score"] >= 60:
+                count += 1
+        return count
+  
+    def show_all(self):
+        print("\n=== 성적표 ===")
+        for s in self.students:
+            mark = "✓" if s["score"] >= 60 else "✗"
+            print(f"{s['name']}: {s['score']}점 {mark}")
+      
+        top = self.get_top_student()
+        fail_count = len(self.students) - self.get_pass_count()
+      
+        print("---")
+        print(f"평균: {self.get_average():.1f}점")
+        print(f"최고: {top['name']} ({top['score']}점)")
+        print(f"합격: {self.get_pass_count()}명 / 불합격: {fail_count}명")
+        print(f"총 학생 수: {StudentManager.total_students}명")
+
+# 테스트
+manager = StudentManager()
+manager.add_student("김철수", 85)
+manager.add_student("박영희", 55)
+manager.add_student("이민수", 92)
+manager.add_student("최지우", 78)
+manager.show_all()
+```
+
+핵심: 클래스 변수 `total_students`로 전체 학생 수를 관리합니다. 메서드들이 `self.students` 리스트를 순회하며 통계를 계산합니다.
+
+---
+
+### 🔴 고급
+
+**문제 26. 모범답안:**
+
+```python
+class TodoList:
+    def __init__(self):
+        self.tasks = []
+  
+    def add_task(self, title, priority="보통"):
+        self.tasks.append({
+            "title": title,
+            "priority": priority,
+            "done": False
+        })
+        print(f"✓ '{title}' 추가됨 (우선순위: {priority})")
+  
+    def complete_task(self, title):
+        for task in self.tasks:
+            if task["title"] == title:
+                task["done"] = True
+                print(f"✓ '{title}' 완료 처리됨")
+                return
+        print(f"❌ '{title}'을(를) 찾을 수 없습니다")
+  
+    def remove_task(self, title):
+        for i, task in enumerate(self.tasks):
+            if task["title"] == title:
+                self.tasks.pop(i)
+                print(f"✓ '{title}' 삭제됨")
+                return
+        print(f"❌ '{title}'을(를) 찾을 수 없습니다")
+  
+    def show_tasks(self):
+        icons = {"높음": "🔴", "보통": "🟡", "낮음": "🟢"}
+        stats = self.get_stats()
+      
+        print("\n=== 할 일 목록 ===")
+        if len(self.tasks) == 0:
+            print("할 일이 없습니다.")
+        else:
+            for task in self.tasks:
+                icon = icons.get(task["priority"], "⚪")
+                status = "[완료 ✓]" if task["done"] else "[미완료]"
+                print(f"{icon} {status} {task['title']}")
+      
+        print("---")
+        print(f"전체: {stats['total']}개 | 완료: {stats['done']}개 | 미완료: {stats['undone']}개")
+  
+    def get_stats(self):
+        total = len(self.tasks)
+        done = 0
+        for task in self.tasks:
+            if task["done"]:
+                done += 1
+        return {"total": total, "done": done, "undone": total - done}
+
+# 테스트
+todo = TodoList()
+todo.add_task("과제 제출", "높음")
+todo.add_task("장보기", "보통")
+todo.add_task("운동하기", "낮음")
+todo.add_task("시험 공부", "높음")
+
+todo.complete_task("운동하기")
+todo.show_tasks()
+```
+
+핵심 포인트:
+
+- 각 할 일을 딕셔너리(`title`, `priority`, `done`)로 저장합니다.
+- `complete_task()`는 리스트를 순회하여 제목이 일치하는 항목의 `done`을 `True`로 변경합니다.
+- `show_tasks()`에서 우선순위별 이모지를 딕셔너리로 매핑합니다.
+- `get_stats()`는 통계를 딕셔너리로 반환하여 다른 메서드에서도 활용 가능합니다.
+
+---
+
+
+수고했습니다.   
+조정현 교수([peterchokr@gmail.com](mailto:peterchokr@gmail.com)) 영남이공대학교
+
+이 연습문제는 Claude 및 Gemini와 협업으로 제작되었습니다.

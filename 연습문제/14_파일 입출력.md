@@ -1,0 +1,839 @@
+# 14장 파일 입출력 — 연습문제
+
+---
+
+## 📝 객관식 문제
+
+---
+
+### 🟢 초급
+
+**문제 1.** 파일을 **쓰기 모드**로 여는 올바른 코드는?
+
+① `open("file.txt", "r")`
+② `open("file.txt", "w")`
+③ `open("file.txt", "a")`
+④ `open("file.txt", "d")`
+
+---
+
+**문제 2.** `with` 문을 사용하여 파일을 여는 이유로 가장 적절한 것은?
+
+① 파일을 더 빨리 읽을 수 있다
+② 파일을 **자동으로 닫아준다**
+③ 파일을 암호화할 수 있다
+④ 파일 크기를 줄여준다
+
+---
+
+**문제 3.** 파일 모드 `"a"`의 역할은?
+
+① 파일을 읽는다
+② 파일의 기존 내용을 **삭제하고** 새로 쓴다
+③ 파일의 기존 내용을 **유지하고** 끝에 추가한다
+④ 파일을 삭제한다
+
+---
+
+**문제 4.** 다음 코드의 실행 결과는?
+
+```python
+with open("test.txt", "w") as f:
+    f.write("Hello")
+    f.write("World")
+```
+
+`test.txt` 파일의 내용은?
+
+① `Hello World`
+② `HelloWorld`
+③ `Hello\nWorld`
+④ 오류 발생
+
+---
+
+**문제 5.** 파일의 모든 줄을 **리스트로** 읽는 메서드는?
+
+① `read()`
+② `readline()`
+③ `readlines()`
+④ `readall()`
+
+---
+
+**문제 6.** 다음 코드에서 `encoding="utf-8"`의 역할은?
+
+```python
+with open("file.txt", "w", encoding="utf-8") as f:
+    f.write("안녕하세요")
+```
+
+① 파일을 압축한다
+② **한글을 올바르게** 처리한다
+③ 파일을 암호화한다
+④ 파일 크기를 줄인다
+
+---
+
+**문제 7.** 존재하지 않는 파일을 `"r"` 모드로 열면 어떻게 되는가?
+
+① 빈 파일이 새로 만들어진다
+② `None`을 반환한다
+③ `FileNotFoundError` **오류가 발생**한다
+④ 빈 문자열을 반환한다
+
+---
+
+### 🟡 중급
+
+**문제 8.** 다음 코드 실행 후 `test.txt`의 내용은?
+
+```python
+with open("test.txt", "w") as f:
+    f.write("첫 번째\n")
+
+with open("test.txt", "w") as f:
+    f.write("두 번째\n")
+```
+
+① `첫 번째\n두 번째\n`
+② `두 번째\n`
+③ `첫 번째\n`
+④ 빈 파일
+
+---
+
+**문제 9.** 다음 코드 실행 후 `test.txt`의 내용은?
+
+```python
+with open("test.txt", "w") as f:
+    f.write("첫 번째\n")
+
+with open("test.txt", "a") as f:
+    f.write("두 번째\n")
+```
+
+① `두 번째\n`
+② `첫 번째\n두 번째\n`
+③ `첫 번째\n`
+④ 오류 발생
+
+---
+
+**문제 10.** 다음 코드의 실행 결과는?
+
+```python
+with open("test.txt", "w") as f:
+    f.write("Line 1\nLine 2\nLine 3\n")
+
+with open("test.txt", "r") as f:
+    lines = f.readlines()
+    print(len(lines))
+```
+
+① 1
+② 2
+③ 3
+④ 4
+
+---
+
+**문제 11.** `readline()`과 `readlines()`의 차이점으로 옳은 것은?
+
+① `readline()`은 전체를, `readlines()`는 한 줄을 읽는다
+② `readline()`은 **한 줄**을, `readlines()`는 **모든 줄을 리스트**로 읽는다
+③ 둘은 동일한 기능이다
+④ `readline()`은 리스트로, `readlines()`는 문자열로 읽는다
+
+---
+
+**문제 12.** 다음 코드의 실행 결과는?
+
+```python
+with open("test.txt", "w") as f:
+    f.write("Hello\nWorld\n")
+
+with open("test.txt", "r") as f:
+    content = f.read()
+    print(content.strip())
+```
+
+① `Hello World`
+② `Hello\nWorld`
+③ `Hello` (줄바꿈) `World`
+④ `['Hello\n', 'World\n']`
+
+---
+
+### 🔴 고급
+
+**문제 13.** CSV 파일의 한 줄 `"김철수,20,컴퓨터공학"`을 파싱하는 올바른 코드는?
+
+① `line.split()`
+② `line.split(",")`
+③ `line.split(":")`
+④ `line.strip(",")`
+
+---
+
+**문제 14.** 다음 코드의 실행 결과는?
+
+```python
+with open("test.txt", "w") as f:
+    f.write("A\nB\nC\n")
+
+with open("test.txt", "r") as f:
+    content = f.read()
+    words = content.split("\n")
+    print(len(words))
+```
+
+① 3
+② 4
+③ 2
+④ 오류 발생
+
+---
+
+**문제 15.** 다음 코드에서 `json.dump()`의 역할은?
+
+```python
+import json
+data = {"name": "철수", "age": 20}
+with open("data.json", "w") as f:
+    json.dump(data, f, ensure_ascii=False)
+```
+
+① JSON 파일을 읽어 딕셔너리로 변환한다
+② **딕셔너리를 JSON 파일에 저장**한다
+③ JSON 문자열을 출력한다
+④ 파일을 삭제한다
+
+---
+
+## 📝 주관식 문제
+
+---
+
+### 🟢 초급
+
+**문제 16.** 파일 모드 `"r"`, `"w"`, `"a"`의 차이점을 설명하시오. 특히 `"w"`와 `"a"`의 차이를 명확히 설명하시오.
+
+---
+
+**문제 17.** `with` 문을 사용하는 이유를 설명하고, 다음 두 코드의 차이점을 설명하시오.
+
+**코드 A:**
+
+```python
+file = open("test.txt", "w")
+file.write("Hello")
+file.close()
+```
+
+**코드 B:**
+
+```python
+with open("test.txt", "w") as file:
+    file.write("Hello")
+```
+
+---
+
+**문제 18.** `read()`, `readline()`, `readlines()` 세 메서드의 차이점을 설명하시오.
+
+---
+
+### 🟡 중급
+
+**문제 19.** 다음 코드의 실행 결과를 쓰고, `strip()`의 역할을 설명하시오.
+
+```python
+# test.txt 내용: "사과\n바나나\n오렌지\n"
+
+with open("test.txt", "r", encoding="utf-8") as f:
+    lines = f.readlines()
+  
+for line in lines:
+    print(f"[{line.strip()}]")
+
+print(f"줄 수: {len(lines)}")
+```
+
+---
+
+**문제 20.** CSV 파일의 개념을 설명하고, 다음 CSV 데이터를 읽어 처리하는 과정을 단계별로 설명하시오.
+
+```
+이름,국어,영어,수학
+김철수,85,90,78
+박영희,92,88,95
+```
+
+---
+
+### 🔴 고급
+
+**문제 21.** 다음 코드의 실행 결과를 쓰고, `json.dump()`와 `json.load()`의 관계를 설명하시오.
+
+```python
+import json
+
+# 저장
+data = {"이름": "홍길동", "점수": [85, 90, 78], "통과": True}
+with open("data.json", "w", encoding="utf-8") as f:
+    json.dump(data, f, ensure_ascii=False, indent=2)
+
+# 읽기
+with open("data.json", "r", encoding="utf-8") as f:
+    loaded = json.load(f)
+
+print(type(loaded))
+print(loaded["이름"])
+print(sum(loaded["점수"]))
+```
+
+---
+
+## 💻 실습형 문제
+
+---
+
+### 🟢 초급
+
+**문제 22.** 다음 요구사항에 맞는 프로그램을 작성하시오.
+
+> 다음 학생 정보를 `students.txt` 파일에 저장하고, 다시 읽어서 출력하시오.
+>
+> - 김철수, 20세, 컴퓨터공학
+> - 박영희, 21세, 경영학
+> - 이민수, 22세, 전자공학
+
+출력 예시:
+
+```
+[파일 저장 완료]
+
+[파일 읽기 결과]
+김철수, 20세, 컴퓨터공학
+박영희, 21세, 경영학
+이민수, 22세, 전자공학
+```
+
+---
+
+**문제 23.** 다음 요구사항에 맞는 프로그램을 작성하시오.
+
+> `"a"` 모드를 사용하여 메모를 한 줄씩 `memo.txt` 파일에 추가하시오.
+> 3개의 메모를 추가한 후, 파일을 읽어서 전체 내용을 출력하시오.
+
+출력 예시:
+
+```
+메모 1: 파이썬 공부하기
+메모 2: 과제 제출하기
+메모 3: 도서관 책 반납
+
+[memo.txt 내용]
+1. 파이썬 공부하기
+2. 과제 제출하기
+3. 도서관 책 반납
+```
+
+---
+
+### 🟡 중급
+
+**문제 24.** 다음 요구사항에 맞는 프로그램을 작성하시오.
+
+> 5명의 학생 성적을 CSV 형식으로 `scores.csv` 파일에 저장하고, 다시 읽어서 성적표를 출력하시오.
+>
+> CSV 형식: `이름,국어,영어,수학`
+> 데이터: 김철수/85/90/78, 박영희/92/88/95, 이민수/78/82/80, 최지은/95/91/89, 홍길동/70/75/68
+
+출력 예시:
+
+```
+[scores.csv 저장 완료]
+
+=== 성적표 ===
+이름      국어  영어  수학  평균
+-------------------------------
+김철수     85    90    78   84.3
+박영희     92    88    95   91.7
+이민수     78    82    80   80.0
+최지은     95    91    89   91.7
+홍길동     70    75    68   71.0
+-------------------------------
+전체 평균: 83.7점
+```
+
+---
+
+**문제 25.** 다음 요구사항에 맞는 프로그램을 작성하시오.
+
+> `try-except`를 활용하여, 파일이 존재하면 읽고 존재하지 않으면 새로 생성하는 프로그램을 작성하시오.
+>
+> - `counter.txt` 파일에 프로그램 실행 횟수를 저장합니다.
+> - 파일이 없으면 `1`을 저장합니다.
+> - 파일이 있으면 숫자를 읽어 1 증가시킨 후 다시 저장합니다.
+
+출력 예시 (3번째 실행):
+
+```
+현재 실행 횟수: 3회
+```
+
+---
+
+### 🔴 고급
+
+**문제 26.** 다음 요구사항에 맞는 프로그램을 작성하시오.
+
+> JSON 파일을 사용한 간단한 주소록 프로그램을 작성하시오.
+>
+> `contacts.json`에 연락처를 저장/불러오기 합니다.
+> 기능: 1) 연락처 추가 2) 연락처 검색 3) 전체 목록 4) 연락처 삭제
+>
+> 다음 데이터를 추가한 후 전체 목록과 검색 결과를 출력하시오.
+>
+> - 김철수: 010-1111-2222
+> - 박영희: 010-3333-4444
+> - 이민수: 010-5555-6666
+
+출력 예시:
+
+```
+[연락처 추가]
+✓ 김철수 추가 완료
+✓ 박영희 추가 완료
+✓ 이민수 추가 완료
+
+[전체 목록]
+1. 김철수: 010-1111-2222
+2. 박영희: 010-3333-4444
+3. 이민수: 010-5555-6666
+총 3명
+
+[검색: 박영희]
+박영희: 010-3333-4444
+
+[삭제: 이민수]
+✓ 이민수 삭제 완료
+
+[최종 목록 → contacts.json 저장]
+1. 김철수: 010-1111-2222
+2. 박영희: 010-3333-4444
+총 2명
+```
+
+---
+
+---
+
+# 🔑 정답 및 해설
+
+---
+
+## 📝 객관식 정답
+
+---
+
+### 🟢 초급
+
+**문제 1. 정답: ② `open("file.txt", "w")`**
+
+`"w"`는 **write(쓰기)** 모드입니다. `"r"`은 읽기, `"a"`는 추가 모드입니다.
+
+---
+
+**문제 2. 정답: ② 파일을 자동으로 닫아준다**
+
+`with` 문을 사용하면 블록이 끝날 때 **자동으로 `close()`가 호출**됩니다. 오류가 발생해도 안전하게 파일이 닫힙니다.
+
+---
+
+**문제 3. 정답: ③ 파일의 기존 내용을 유지하고 끝에 추가한다**
+
+`"a"`는 **append(추가)** 모드입니다. 기존 내용은 그대로 보존되고, 새 내용이 파일 끝에 추가됩니다.
+
+---
+
+**문제 4. 정답: ② `HelloWorld`**
+
+`write()`는 자동으로 줄바꿈을 추가하지 않습니다. `"Hello"`와 `"World"`가 줄바꿈 없이 이어붙여집니다. 줄바꿈이 필요하면 `\n`을 명시적으로 넣어야 합니다.
+
+---
+
+**문제 5. 정답: ③ `readlines()`**
+
+`readlines()`는 파일의 모든 줄을 **리스트**로 반환합니다. 각 줄은 `\n`을 포함합니다.
+
+---
+
+**문제 6. 정답: ② 한글을 올바르게 처리한다**
+
+`encoding="utf-8"`을 지정하면 한글 등 **다국어 문자**를 올바르게 인코딩/디코딩할 수 있습니다.
+
+---
+
+**문제 7. 정답: ③ `FileNotFoundError` 오류가 발생한다**
+
+`"r"` 모드는 파일이 **반드시 존재**해야 합니다. 파일이 없으면 `FileNotFoundError`가 발생합니다. `"w"`와 `"a"` 모드는 파일이 없으면 새로 만듭니다.
+
+---
+
+### 🟡 중급
+
+**문제 8. 정답: ② `두 번째\n`**
+
+`"w"` 모드는 파일을 열 때마다 **기존 내용을 삭제**합니다. 두 번째 `open()`에서 첫 번째 내용이 삭제되고 `"두 번째\n"`만 남습니다.
+
+---
+
+**문제 9. 정답: ② `첫 번째\n두 번째\n`**
+
+첫 번째는 `"w"` 모드로 `"첫 번째\n"`을 씁니다. 두 번째는 `"a"` 모드로 기존 내용 뒤에 `"두 번째\n"`을 추가합니다.
+
+---
+
+**문제 10. 정답: ③ 3**
+
+`readlines()`는 `["Line 1\n", "Line 2\n", "Line 3\n"]`을 반환합니다. 리스트 길이는 3입니다. 각 줄의 `\n`이 줄 구분자 역할을 합니다.
+
+---
+
+**문제 11. 정답: ② `readline()`은 한 줄을, `readlines()`는 모든 줄을 리스트로 읽는다**
+
+`readline()`은 파일에서 **한 줄만** 읽어 문자열로 반환합니다. `readlines()`는 **모든 줄**을 읽어 리스트로 반환합니다.
+
+---
+
+**문제 12. 정답: ③ `Hello` (줄바꿈) `World`**
+
+`read()`는 파일 전체를 하나의 문자열로 읽습니다. `strip()`으로 앞뒤 공백과 `\n`을 제거하면 `"Hello\nWorld"`가 됩니다. `print()`가 `\n`을 줄바꿈으로 처리하여 두 줄로 출력됩니다.
+
+---
+
+### 🔴 고급
+
+**문제 13. 정답: ② `line.split(",")`**
+
+CSV(Comma-Separated Values)는 쉼표로 값을 구분합니다. `split(",")`으로 쉼표 기준으로 분리하면 `["김철수", "20", "컴퓨터공학"]`이 됩니다.
+
+---
+
+**문제 14. 정답: ② 4**
+
+파일 내용은 `"A\nB\nC\n"`입니다. `split("\n")`으로 나누면 `["A", "B", "C", ""]`이 됩니다. 마지막 `\n` 뒤에 빈 문자열이 생겨 길이는 **4**입니다.
+
+---
+
+**문제 15. 정답: ② 딕셔너리를 JSON 파일에 저장한다**
+
+`json.dump()`는 파이썬 객체(딕셔너리, 리스트 등)를 **JSON 형식으로 파일에 저장**합니다. 반대로 `json.load()`는 JSON 파일을 읽어 파이썬 객체로 변환합니다.
+
+---
+
+## 📝 주관식 정답
+
+---
+
+### 🟢 초급
+
+**문제 16. 모범답안:**
+
+- **`"r"` (read)**: 읽기 모드. 파일의 내용을 읽습니다. 파일이 **없으면 오류**(`FileNotFoundError`)가 발생합니다.
+- **`"w"` (write)**: 쓰기 모드. 파일에 내용을 씁니다. 파일이 없으면 **새로 생성**하고, 이미 있으면 **기존 내용을 모두 삭제**한 후 씁니다.
+- **`"a"` (append)**: 추가 모드. 파일 끝에 내용을 추가합니다. 파일이 없으면 **새로 생성**하고, 이미 있으면 **기존 내용을 유지**한 채 끝에 덧붙입니다.
+
+**`"w"`와 `"a"`의 핵심 차이**: `"w"`는 열 때마다 기존 내용이 사라지고, `"a"`는 기존 내용이 보존됩니다.
+
+---
+
+**문제 17. 모범답안:**
+
+두 코드 모두 `test.txt` 파일에 `"Hello"`를 쓰는 동일한 결과를 만듭니다. 차이점은 **파일 닫기 처리**입니다.
+
+**코드 A**: `close()`를 수동으로 호출해야 합니다. 만약 `write()`에서 오류가 발생하면 `close()`가 실행되지 않아 파일이 제대로 닫히지 않을 수 있습니다.
+
+**코드 B**: `with` 문이 블록 종료 시 **자동으로 파일을 닫습니다**. 오류가 발생해도 안전하게 파일이 닫히므로 더 안전하고 권장됩니다.
+
+---
+
+**문제 18. 모범답안:**
+
+- **`read()`**: 파일 **전체 내용**을 하나의 문자열로 읽습니다.
+- **`readline()`**: 파일에서 **한 줄만** 읽어 문자열로 반환합니다. 호출할 때마다 다음 줄을 읽습니다.
+- **`readlines()`**: 파일의 **모든 줄**을 읽어 **리스트**로 반환합니다. 각 요소는 줄바꿈(`\n`)을 포함합니다.
+
+예시: 파일 내용이 `"A\nB\nC\n"`일 때
+
+- `read()` → `"A\nB\nC\n"` (문자열)
+- `readline()` → `"A\n"` (첫 번째 줄)
+- `readlines()` → `["A\n", "B\n", "C\n"]` (리스트)
+
+---
+
+### 🟡 중급
+
+**문제 19. 모범답안:**
+
+**실행 결과:**
+
+```
+[사과]
+[바나나]
+[오렌지]
+줄 수: 3
+```
+
+**`strip()`의 역할:** 문자열 앞뒤의 **공백, 줄바꿈(`\n`), 탭(`\t`)** 등 공백 문자를 제거합니다. `readlines()`로 읽은 각 줄은 끝에 `\n`이 포함되어 있으므로, `strip()`으로 제거해야 깔끔하게 출력됩니다.
+
+---
+
+**문제 20. 모범답안:**
+
+**CSV 파일:** CSV(Comma-Separated Values)는 데이터를 **쉼표로 구분**하여 저장하는 텍스트 파일 형식입니다. 스프레드시트나 데이터베이스에서 데이터를 교환할 때 자주 사용합니다.
+
+**처리 과정:**
+
+1. `readlines()`로 파일을 읽어 줄 단위 리스트를 얻습니다.
+2. 첫 번째 줄(`lines[0]`)은 **헤더**(열 이름)이므로 `strip().split(",")`으로 분리합니다 → `["이름", "국어", "영어", "수학"]`
+3. 두 번째 줄부터는 **데이터**입니다. 각 줄을 `strip().split(",")`으로 분리합니다 → `["김철수", "85", "90", "78"]`
+4. 숫자 데이터는 `int()`로 형 변환하여 계산에 사용합니다.
+
+---
+
+### 🔴 고급
+
+**문제 21. 모범답안:**
+
+**실행 결과:**
+
+```
+<class 'dict'>
+홍길동
+253
+```
+
+**`json.dump()`와 `json.load()`의 관계:**
+
+- `json.dump(data, file)`: 파이썬 객체 → **JSON 파일에 저장** (직렬화, serialization)
+- `json.load(file)`: JSON 파일 → **파이썬 객체로 복원** (역직렬화, deserialization)
+
+두 함수는 **반대 역할**을 합니다. `dump()`로 저장한 데이터를 `load()`로 원래 형태 그대로 복원할 수 있습니다.
+
+- `ensure_ascii=False`: 한글이 유니코드 이스케이프(\uXXXX)가 아닌 한글 그대로 저장됩니다.
+- `indent=2`: JSON 파일이 들여쓰기되어 사람이 읽기 쉽게 저장됩니다.
+- `loaded`의 타입은 `dict`이고, 리스트 `[85, 90, 78]`도 그대로 복원됩니다. `sum([85, 90, 78])` = 253.
+
+---
+
+## 💻 실습형 정답
+
+---
+
+### 🟢 초급
+
+**문제 22. 모범답안:**
+
+```python
+# 파일 쓰기
+with open("students.txt", "w", encoding="utf-8") as f:
+    f.write("김철수, 20세, 컴퓨터공학\n")
+    f.write("박영희, 21세, 경영학\n")
+    f.write("이민수, 22세, 전자공학\n")
+
+print("[파일 저장 완료]\n")
+
+# 파일 읽기
+print("[파일 읽기 결과]")
+with open("students.txt", "r", encoding="utf-8") as f:
+    content = f.read()
+    print(content, end="")
+```
+
+핵심: `"w"` 모드로 파일에 쓸 때 `\n`을 명시적으로 추가해야 줄바꿈이 됩니다. `read()`로 전체 내용을 읽어 출력합니다.
+
+---
+
+**문제 23. 모범답안:**
+
+```python
+# 메모를 하나씩 추가
+memos = ["파이썬 공부하기", "과제 제출하기", "도서관 책 반납"]
+
+for i, memo in enumerate(memos, 1):
+    print(f"메모 {i}: {memo}")
+    with open("memo.txt", "a", encoding="utf-8") as f:
+        f.write(memo + "\n")
+
+# 파일 읽기
+print("\n[memo.txt 내용]")
+with open("memo.txt", "r", encoding="utf-8") as f:
+    lines = f.readlines()
+    for i, line in enumerate(lines, 1):
+        print(f"{i}. {line.strip()}")
+```
+
+핵심: `"a"` 모드는 매번 열어도 기존 내용이 유지되고 끝에 추가됩니다. `readlines()`로 읽은 후 `strip()`으로 `\n`을 제거합니다.
+
+---
+
+### 🟡 중급
+
+**문제 24. 모범답안:**
+
+```python
+# CSV 파일 저장
+students = [
+    ("김철수", 85, 90, 78),
+    ("박영희", 92, 88, 95),
+    ("이민수", 78, 82, 80),
+    ("최지은", 95, 91, 89),
+    ("홍길동", 70, 75, 68)
+]
+
+with open("scores.csv", "w", encoding="utf-8") as f:
+    f.write("이름,국어,영어,수학\n")
+    for name, kor, eng, math in students:
+        f.write(f"{name},{kor},{eng},{math}\n")
+
+print("[scores.csv 저장 완료]\n")
+
+# CSV 파일 읽기 및 성적표 출력
+with open("scores.csv", "r", encoding="utf-8") as f:
+    lines = f.readlines()
+
+print("=== 성적표 ===")
+print(f"{'이름':<6} {'국어':>4} {'영어':>4} {'수학':>4} {'평균':>6}")
+print("-" * 31)
+
+all_avg = []
+for line in lines[1:]:  # 헤더 제외
+    data = line.strip().split(",")
+    name = data[0]
+    kor = int(data[1])
+    eng = int(data[2])
+    math = int(data[3])
+    avg = (kor + eng + math) / 3
+    all_avg.append(avg)
+    print(f"{name:<6} {kor:>4} {eng:>4} {math:>4} {avg:>6.1f}")
+
+print("-" * 31)
+total_avg = sum(all_avg) / len(all_avg)
+print(f"전체 평균: {total_avg:.1f}점")
+```
+
+핵심 포인트:
+
+- 헤더와 데이터를 구분하여 CSV를 작성합니다.
+- `lines[1:]`로 헤더를 건너뛰고 데이터만 처리합니다.
+- `strip().split(",")`으로 각 줄을 파싱하고, `int()`로 숫자를 변환합니다.
+
+---
+
+**문제 25. 모범답안:**
+
+```python
+filename = "counter.txt"
+
+# 파일 읽기 시도
+try:
+    with open(filename, "r") as f:
+        count = int(f.read().strip())
+except FileNotFoundError:
+    count = 0
+
+# 횟수 증가
+count = count + 1
+
+# 파일에 저장
+with open(filename, "w") as f:
+    f.write(str(count))
+
+print(f"현재 실행 횟수: {count}회")
+```
+
+핵심 포인트:
+
+- `try-except FileNotFoundError`로 파일이 없는 경우를 안전하게 처리합니다.
+- 파일이 없으면 `count = 0`으로 초기화합니다.
+- `"w"` 모드로 매번 전체를 다시 쓰며, 정수를 `str()`로 변환하여 저장합니다.
+
+---
+
+### 🔴 고급
+
+**문제 26. 모범답안:**
+
+```python
+import json
+import os
+
+filename = "contacts.json"
+
+def load_contacts():
+    """연락처 불러오기"""
+    if os.path.exists(filename):
+        with open(filename, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return {}
+
+def save_contacts(contacts):
+    """연락처 저장"""
+    with open(filename, "w", encoding="utf-8") as f:
+        json.dump(contacts, f, ensure_ascii=False, indent=2)
+
+# 연락처 불러오기
+contacts = load_contacts()
+
+# 추가
+print("[연락처 추가]")
+new_data = {"김철수": "010-1111-2222", "박영희": "010-3333-4444", "이민수": "010-5555-6666"}
+for name, phone in new_data.items():
+    contacts[name] = phone
+    print(f"✓ {name} 추가 완료")
+
+# 전체 목록
+print("\n[전체 목록]")
+for i, (name, phone) in enumerate(contacts.items(), 1):
+    print(f"{i}. {name}: {phone}")
+print(f"총 {len(contacts)}명")
+
+# 검색
+search_name = "박영희"
+print(f"\n[검색: {search_name}]")
+if search_name in contacts:
+    print(f"{search_name}: {contacts[search_name]}")
+
+# 삭제
+delete_name = "이민수"
+print(f"\n[삭제: {delete_name}]")
+if delete_name in contacts:
+    del contacts[delete_name]
+    print(f"✓ {delete_name} 삭제 완료")
+
+# 저장 및 최종 목록
+save_contacts(contacts)
+print(f"\n[최종 목록 → {filename} 저장]")
+for i, (name, phone) in enumerate(contacts.items(), 1):
+    print(f"{i}. {name}: {phone}")
+print(f"총 {len(contacts)}명")
+```
+
+핵심 포인트:
+
+- `json.load()`와 `json.dump()`로 딕셔너리를 파일에 저장/불러오기 합니다.
+- `os.path.exists()`로 파일 존재 여부를 확인합니다.
+- 함수를 분리하여 저장/불러오기 로직을 재사용합니다.
+- `ensure_ascii=False`로 한글을 그대로 저장하고, `indent=2`로 가독성을 높입니다.
+
+---
+
+
+수고했습니다.   
+조정현 교수([peterchokr@gmail.com](mailto:peterchokr@gmail.com)) 영남이공대학교
+
+이 연습문제는 Claude 및 Gemini와 협업으로 제작되었습니다.
