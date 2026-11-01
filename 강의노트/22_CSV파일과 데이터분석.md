@@ -426,128 +426,7 @@ print(f"🥉 3등: {students[2]['이름']} ({students[2]['총점']}점)")
 
 ---
 
-## 6️⃣ **실전 예제: 매출 분석 프로그램**
-
-간단한 매출 데이터를 분석하는 프로그램입니다.
-
-### **데이터 준비**
-
-먼저 매출 데이터 파일을 만들어봅시다.
-
-**sales.csv 파일 만들기:**
-
-**sales.csv 파일 내용:**
-
-```
-날짜,상품,수량,가격
-2024-01-01,노트북,2,1500000
-2024-01-01,마우스,5,30000
-2024-01-02,키보드,3,120000
-2024-01-02,모니터,1,350000
-2024-01-03,노트북,1,1500000
-2024-01-03,마우스,3,30000
-```
-
-💡 **파일 구조 설명:**
-
-- **날짜**: 판매 날짜 (YYYY-MM-DD 형식)
-- **상품**: 상품 이름
-- **수량**: 판매 수량
-- **가격**: 개당 가격 (원)
-- **매출 = 수량 × 가격** (프로그램에서 계산)
-
-### **매출 분석 코드**
-
-```python
-import csv
-from collections import defaultdict
-
-# 데이터 읽기
-sales = []
-with open('sales.csv', 'r', encoding='utf-8') as file:
-    csv_reader = csv.DictReader(file)
-    for row in csv_reader:
-        sales.append({
-            '날짜': row['날짜'],
-            '상품': row['상품'],
-            '수량': int(row['수량']),
-            '가격': int(row['가격'])
-        })
-
-# 각 판매의 매출 계산
-for sale in sales:
-    sale['매출'] = sale['수량'] * sale['가격']
-
-# 1. 전체 매출
-total_revenue = sum(sale['매출'] for sale in sales)
-
-print("=" * 60)
-print("📊 매출 분석 리포트")
-print("=" * 60)
-print(f"\n💰 전체 매출: {total_revenue:,}원")
-
-# 2. 날짜별 매출
-daily_revenue = defaultdict(int)
-for sale in sales:
-    daily_revenue[sale['날짜']] += sale['매출']
-
-print("\n📅 날짜별 매출:")
-print("-" * 60)
-for date, revenue in sorted(daily_revenue.items()):
-    print(f"{date}: {revenue:,}원")
-
-# 3. 상품별 매출
-product_revenue = defaultdict(int)
-product_quantity = defaultdict(int)
-
-for sale in sales:
-    product_revenue[sale['상품']] += sale['매출']
-    product_quantity[sale['상품']] += sale['수량']
-
-print("\n📦 상품별 매출:")
-print("-" * 60)
-for product in product_revenue:
-    revenue = product_revenue[product]
-    quantity = product_quantity[product]
-    print(f"{product:10} : {revenue:,}원 (판매량: {quantity}개)")
-
-# 4. 베스트 상품
-best_product = max(product_revenue, key=product_revenue.get)
-print("\n⭐ 베스트 상품:")
-print(f"   {best_product} - {product_revenue[best_product]:,}원")
-
-# 5. 결과를 새 CSV 파일로 저장
-print("\n💾 분석 결과를 report.csv로 저장 중...")
-
-with open('report.csv', 'w', newline='', encoding='utf-8') as file:
-    fieldnames = ['구분', '항목', '매출']
-    csv_writer = csv.DictWriter(file, fieldnames=fieldnames)
-  
-    csv_writer.writeheader()
-  
-    # 날짜별 매출 저장
-    for date, revenue in sorted(daily_revenue.items()):
-        csv_writer.writerow({
-            '구분': '날짜별',
-            '항목': date,
-            '매출': revenue
-        })
-  
-    # 상품별 매출 저장
-    for product, revenue in product_revenue.items():
-        csv_writer.writerow({
-            '구분': '상품별',
-            '항목': product,
-            '매출': revenue
-        })
-
-print("✓ 저장 완료!")
-print("=" * 60)
-```
-
----
-
-## 7️⃣  **데이터 필터링과 정렬**
+## 6️⃣   **데이터 필터링과 정렬**
 
 CSV 데이터를 조건에 맞게 필터링하고 정렬하는 방법입니다.
 
@@ -598,7 +477,7 @@ print("\n✓ 우수 학생 명단이 excellent_students.csv로 저장되었습�
 
 ---
 
-## 8️⃣ **CSV 파일 다루기 팁**
+## 7️⃣ **CSV 파일 다루기 팁**
 
 ### **팁 1: 파일 존재 확인**
 
@@ -658,48 +537,6 @@ with open('data.tsv', 'r', encoding='utf-8') as file:
 
 ---
 
-## 📝 **핵심 개념 정리**
-
-### **CSV 읽기**
-
-```python
-import csv
-
-# 리스트로 읽기
-with open('file.csv', 'r', encoding='utf-8') as file:
-    csv_reader = csv.reader(file)
-    for row in csv_reader:
-        print(row)
-
-# 딕셔너리로 읽기
-with open('file.csv', 'r', encoding='utf-8') as file:
-    csv_reader = csv.DictReader(file)
-    for row in csv_reader:
-        print(row['컬럼명'])
-```
-
-### **CSV 쓰기**
-
-```python
-# 리스트로 쓰기
-with open('file.csv', 'w', newline='', encoding='utf-8') as file:
-    csv_writer = csv.writer(file)
-    csv_writer.writerows(data)
-
-# 딕셔너리로 쓰기
-with open('file.csv', 'w', newline='', encoding='utf-8') as file:
-    csv_writer = csv.DictWriter(file, fieldnames=['컬럼1', '컬럼2'])
-    csv_writer.writeheader()
-    csv_writer.writerows(data)
-```
-
-### **주의사항**
-
-- `encoding='utf-8'` 필수 (한글 깨짐 방지)
-- `newline=''` 필수 (빈 줄 방지)
-- 숫자는 문자로 읽힘 → `int()`, `float()` 변환 필요
-
----
 
 ## 💡 **실습 과제**
 
