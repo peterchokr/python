@@ -445,7 +445,7 @@ y = [2, 4, 6, 8, 10]
 plt.figure(figsize=(10, 8))
 
 # 1번 그래프 (꺾은선)
-plt.subplot(2, 2, 1)
+plt.subplot(2, 2, 1)      # plt.subplot(행, 열, 번호)
 plt.plot(x, y, marker='o')
 plt.title('꺾은선 그래프')
 plt.grid(True)
