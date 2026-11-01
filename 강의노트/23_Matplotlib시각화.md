@@ -280,38 +280,6 @@ plt.grid(axis='x', linestyle='--', alpha=0.5)
 plt.show()
 ```
 
-### **그룹 막대 그래프**
-
-```python
-import matplotlib.pyplot as plt
-import numpy as np
-
-plt.rcParams['font.family'] = 'Malgun Gothic'
-plt.rcParams['axes.unicode_minus'] = False
-
-# 데이터
-categories = ['1분기', '2분기', '3분기', '4분기']
-product_a = [100, 120, 90, 150]
-product_b = [90, 110, 100, 130]
-
-# x축 위치
-x = np.arange(len(categories))
-width = 0.35  # 막대 너비
-
-# 그룹 막대 그래프
-plt.bar(x - width/2, product_a, width, label='제품 A', color='skyblue')
-plt.bar(x + width/2, product_b, width, label='제품 B', color='lightcoral')
-
-plt.title('분기별 제품 판매량', fontsize=16)
-plt.xlabel('분기', fontsize=12)
-plt.ylabel('판매량', fontsize=12)
-plt.xticks(x, categories)  # x축 라벨 설정
-plt.legend()
-plt.grid(axis='y', linestyle='--', alpha=0.5)
-
-plt.show()
-```
-
 ---
 
 ## 5️⃣ **원 그래프 (Pie Chart)**
