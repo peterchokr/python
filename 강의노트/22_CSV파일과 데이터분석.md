@@ -305,22 +305,6 @@ CSV 파일의 데이터를 읽어서 간단한 분석을 해봅시다.
 - 쉼표(`,`)로 구분
 - 인코딩: UTF-8로 저장
 
-**엑셀에서 만드는 방법:**
-
-```
-┌────────┬──────┬──────┬──────┐
-│  이름  │ 국어 │ 영어 │ 수학 │
-├────────┼──────┼──────┼──────┤
-│ 김철수 │  85  │  90  │  78  │
-│ 박영희 │  92  │  88  │  95  │
-│ 이민수 │  78  │  85  │  82  │
-│ 최지은 │  88  │  92  │  90  │
-│ 정민호 │  95  │  78  │  88  │
-└────────┴──────┴──────┴──────┘
-
-↓ "다른 이름으로 저장"
-↓ 파일 형식: CSV (쉼표로 분리)
-```
 
 ### **평균 계산**
 
@@ -384,45 +368,6 @@ print(f"수학 평균: {math_total / count:.1f}점")
 수학 평균: 86.6점
 ```
 
-### **최고점, 최저점 찾기**
-
-```python
-import csv
-
-# 데이터 읽기
-students = []
-with open('scores.csv', 'r', encoding='utf-8') as file:
-    csv_reader = csv.DictReader(file)
-    for row in csv_reader:
-        students.append({
-            '이름': row['이름'],
-            '국어': int(row['국어']),
-            '영어': int(row['영어']),
-            '수학': int(row['수학'])
-        })
-
-# 각 학생의 총점 계산
-for student in students:
-    student['총점'] = student['국어'] + student['영어'] + student['수학']
-
-# 총점 순으로 정렬
-students.sort(key=lambda x: x['총점'], reverse=True)
-
-# 결과 출력
-print("=" * 60)
-print("성적표 (총점 순)")
-print("=" * 60)
-print(f"{'순위':^4} {'이름':^8} {'국어':^6} {'영어':^6} {'수학':^6} {'총점':^6}")
-print("-" * 60)
-
-for rank, student in enumerate(students, 1):
-    print(f"{rank:^4} {student['이름']:^8} {student['국어']:^6} {student['영어']:^6} {student['수학']:^6} {student['총점']:^6}")
-
-print("=" * 60)
-print(f"\n🥇 1등: {students[0]['이름']} ({students[0]['총점']}점)")
-print(f"🥈 2등: {students[1]['이름']} ({students[1]['총점']}점)")
-print(f"🥉 3등: {students[2]['이름']} ({students[2]['총점']}점)")
-```
 
 ---
 
