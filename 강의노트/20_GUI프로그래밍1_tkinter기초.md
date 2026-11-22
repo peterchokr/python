@@ -309,83 +309,36 @@ window.mainloop()
 지금까지 배운 것으로 계산기를 만들어봅시다!
 
 ```python
-import tkinter as tk
+from tkinter import *
 
-def calculate():
-    """계산 실행"""
-    try:
-        num1 = float(entry1.get())
-        num2 = float(entry2.get())
-        result = num1 + num2
-        result_label.config(text=f"결과: {result}", fg="blue")
-    except ValueError:
-        result_label.config(text="숫자를 입력하세요!", fg="red")
+root = Tk()
+root.title("My Calculator")
+display = Entry(root, width=33, bg="yellow")
+display.grid(row=0, column=0, columnspan=5)
 
-def clear():
-    """입력 지우기"""
-    entry1.delete(0, tk.END)
-    entry2.delete(0, tk.END)
-    result_label.config(text="")
+button_list = [
+'7',  '8',  '9',  '/',  'C',
+'4',  '5',  '6',  '*',  ' ',
+'1',  '2',  '3',  '-',  ' ',
+'0',  '.',  '=',  '+',  ' ' ]
 
-# 윈도우 생성
-window = tk.Tk()
-window.title("🔢 간단 계산기")
-window.geometry("400x300")
-window.config(bg="lightgray")
+def click(key):
+    if   key == "=":
+        result = eval(display.get())
+        s = str(result)
+        display.insert(END, "=" + s)
+    else:
+        display.insert(END, key)
 
-# 제목
-title = tk.Label(
-    window,
-    text="덧셈 계산기",
-    font=("맑은 고딕", 20, "bold"),
-    bg="lightgray"
-)
-title.pack(pady=20)
-
-# 첫 번째 숫자
-label1 = tk.Label(window, text="첫 번째 숫자:", bg="lightgray")
-label1.pack()
-entry1 = tk.Entry(window, width=20, font=("맑은 고딕", 12))
-entry1.pack(pady=5)
-
-# 두 번째 숫자
-label2 = tk.Label(window, text="두 번째 숫자:", bg="lightgray")
-label2.pack()
-entry2 = tk.Entry(window, width=20, font=("맑은 고딕", 12))
-entry2.pack(pady=5)
-
-# 버튼들
-button_frame = tk.Frame(window, bg="lightgray")
-button_frame.pack(pady=15)
-
-calc_button = tk.Button(
-    button_frame,
-    text="계산",
-    command=calculate,
-    width=10,
-    bg="lightgreen"
-)
-calc_button.pack(side="left", padx=5)
-
-clear_button = tk.Button(
-    button_frame,
-    text="지우기",
-    command=clear,
-    width=10,
-    bg="lightcoral"
-)
-clear_button.pack(side="left", padx=5)
-
-# 결과 표시
-result_label = tk.Label(
-    window,
-    text="",
-    font=("맑은 고딕", 15, "bold"),
-    bg="lightgray"
-)
-result_label.pack(pady=10)
-
-window.mainloop()
+row_index = 1
+col_index = 0
+for button_text in button_list:
+    Button(root, text=button_text, width=5, command=lambda t=button_text: click(t)).grid(row=row_index, column=col_index)
+    col_index += 1
+    if   col_index > 4:
+        row_index += 1
+        col_index = 0
+root.mainloop()
 ```
 
 ---
