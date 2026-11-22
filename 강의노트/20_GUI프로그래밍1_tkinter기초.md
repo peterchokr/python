@@ -304,7 +304,45 @@ window.mainloop()
 
 ---
 
-## 7️⃣ **실전 예제: 간단한 계산기**
+## 7️⃣  **grid() - 표 형태 배치**
+
+`grid()`를 사용하면 위젯을 표처럼 배치할 수 있습니다.
+
+### **기본 grid**
+
+```python
+import tkinter as tk
+
+window = tk.Tk()
+window.title("grid 예제")
+window.geometry("300x200")
+
+# row=행, column=열
+tk.Label(window, text="이름:").grid(row=0, column=0, sticky="e", padx=5, pady=5)
+tk.Entry(window).grid(row=0, column=1, padx=5, pady=5)
+
+tk.Label(window, text="나이:").grid(row=1, column=0, sticky="e", padx=5, pady=5)
+tk.Entry(window).grid(row=1, column=1, padx=5, pady=5)
+
+tk.Label(window, text="이메일:").grid(row=2, column=0, sticky="e", padx=5, pady=5)
+tk.Entry(window).grid(row=2, column=1, padx=5, pady=5)
+
+tk.Button(window, text="확인").grid(row=3, column=0, columnspan=2, pady=10)
+
+window.mainloop()
+```
+
+**grid() 주요 옵션:**
+
+- `row`: 행 번호 (0부터 시작)
+- `column`: 열 번호 (0부터 시작)
+- `sticky`: 정렬 ("n"북, "s"남, "e"동, "w"서)
+- `columnspan`: 여러 열 차지
+- `rowspan`: 여러 행 차지
+
+---
+
+## 8️⃣ **실전 예제: 간단한 계산기**
 
 지금까지 배운 것으로 계산기를 만들어봅시다!
 
@@ -340,44 +378,6 @@ for button_text in button_list:
         col_index = 0
 root.mainloop()
 ```
-
----
-
-## 8️⃣  **grid() - 표 형태 배치**
-
-`grid()`를 사용하면 위젯을 표처럼 배치할 수 있습니다.
-
-### **기본 grid**
-
-```python
-import tkinter as tk
-
-window = tk.Tk()
-window.title("grid 예제")
-window.geometry("300x200")
-
-# row=행, column=열
-tk.Label(window, text="이름:").grid(row=0, column=0, sticky="e", padx=5, pady=5)
-tk.Entry(window).grid(row=0, column=1, padx=5, pady=5)
-
-tk.Label(window, text="나이:").grid(row=1, column=0, sticky="e", padx=5, pady=5)
-tk.Entry(window).grid(row=1, column=1, padx=5, pady=5)
-
-tk.Label(window, text="이메일:").grid(row=2, column=0, sticky="e", padx=5, pady=5)
-tk.Entry(window).grid(row=2, column=1, padx=5, pady=5)
-
-tk.Button(window, text="확인").grid(row=3, column=0, columnspan=2, pady=10)
-
-window.mainloop()
-```
-
-**grid() 주요 옵션:**
-
-- `row`: 행 번호 (0부터 시작)
-- `column`: 열 번호 (0부터 시작)
-- `sticky`: 정렬 ("n"북, "s"남, "e"동, "w"서)
-- `columnspan`: 여러 열 차지
-- `rowspan`: 여러 행 차지
 
 ---
 
