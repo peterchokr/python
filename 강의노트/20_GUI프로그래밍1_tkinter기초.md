@@ -341,47 +341,7 @@ window.mainloop()
 - `rowspan`: 여러 행 차지
 
 ---
-
-## 8️⃣ **실전 예제: 간단한 계산기**
-
-지금까지 배운 것으로 계산기를 만들어봅시다!
-
-```python
-from tkinter import *
-
-root = Tk()
-root.title("My Calculator")
-display = Entry(root, width=33, bg="yellow")
-display.grid(row=0, column=0, columnspan=5)
-
-button_list = [
-'7',  '8',  '9',  '/',  'C',
-'4',  '5',  '6',  '*',  ' ',
-'1',  '2',  '3',  '-',  ' ',
-'0',  '.',  '=',  '+',  ' ' ]
-
-def click(key):
-    if   key == "=":
-        result = eval(display.get())
-        s = str(result)
-        display.insert(END, "=" + s)
-    else:
-        display.insert(END, key)
-
-row_index = 1
-col_index = 0
-for button_text in button_list:
-    Button(root, text=button_text, width=5, command=lambda t=button_text: click(t)).grid(row=row_index, column=col_index)
-    col_index += 1
-    if   col_index > 4:
-        row_index += 1
-        col_index = 0
-root.mainloop()
-```
-
----
-
-## 9️⃣ **실전 예제: 로그인 화면**
+## 8️⃣ **실전 예제: 로그인 화면**
 
 grid를 활용한 깔끔한 로그인 화면입니다.
 
@@ -440,6 +400,47 @@ login_button = tk.Button(
 login_button.grid(row=3, column=0, columnspan=2, pady=20)
 
 window.mainloop()
+```
+
+
+
+---
+
+## 9️⃣ **실전 예제: 간단한 계산기**
+
+지금까지 배운 것으로 계산기를 만들어봅시다!
+
+```python
+from tkinter import *
+
+root = Tk()
+root.title("My Calculator")
+display = Entry(root, width=33, bg="yellow")
+display.grid(row=0, column=0, columnspan=5)
+
+button_list = [
+'7',  '8',  '9',  '/',  'C',
+'4',  '5',  '6',  '*',  ' ',
+'1',  '2',  '3',  '-',  ' ',
+'0',  '.',  '=',  '+',  ' ' ]
+
+def click(key):
+    if   key == "=":
+        result = eval(display.get())
+        s = str(result)
+        display.insert(END, "=" + s)
+    else:
+        display.insert(END, key)
+
+row_index = 1
+col_index = 0
+for button_text in button_list:
+    Button(root, text=button_text, width=5, command=lambda t=button_text: click(t)).grid(row=row_index, column=col_index)
+    col_index += 1
+    if   col_index > 4:
+        row_index += 1
+        col_index = 0
+root.mainloop()
 ```
 
 ---
